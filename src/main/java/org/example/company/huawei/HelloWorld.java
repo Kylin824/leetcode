@@ -1,6 +1,5 @@
-package org.example.huawei;
+package org.example.company.huawei;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class HelloWorld {

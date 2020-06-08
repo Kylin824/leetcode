@@ -1,4 +1,4 @@
-package org.example.dp;
+package org.example.algorithm.dp;
 
 public class JumpFloor {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package org.example.leetcode.newcode;
+package org.example.leetcode.solved;
 
 import java.util.*;
 

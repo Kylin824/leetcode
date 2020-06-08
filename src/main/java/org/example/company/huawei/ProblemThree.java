@@ -1,6 +1,4 @@
-package org.example.huawei;
-
-import javafx.beans.binding.BooleanExpression;
+package org.example.company.huawei;
 
 import java.util.*;
 

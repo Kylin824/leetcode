@@ -1,4 +1,4 @@
-package org.example.offer;
+package org.example.jzoffer;
 
 
 import java.util.*;

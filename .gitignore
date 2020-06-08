@@ -7,3 +7,5 @@
 *.iml
 out
 gen
+src/main/java/org/example/algorithm/queue/
+target/

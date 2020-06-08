@@ -1,4 +1,4 @@
-package org.example.dp;
+package org.example.algorithm.dp;
 
 import java.util.Scanner;
 
