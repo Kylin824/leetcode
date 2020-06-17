@@ -9,3 +9,4 @@ out
 gen
 src/main/java/org/example/algorithm/queue/
 target/
+src/main/java/org/example/leetcode/star/
