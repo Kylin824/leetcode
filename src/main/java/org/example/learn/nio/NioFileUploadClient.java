@@ -54,9 +54,9 @@ public class NioFileUploadClient {
                 buffer.clear();
                 progress += length;
                 log.info("| " + (100 * progress / file.length()) + "% |" );
+                // Thread.sleep(1000);
             }
             if (length == -1) {
-                Thread.sleep(3000);
                 socketChannel.shutdownOutput();
                 socketChannel.close();
                 log.info("finish sending");

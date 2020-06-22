@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 public class NioFileReceiveServer {
     public static Logger log = Logger.getLogger("NioFileReceiveServer");
     private Charset charset = Charset.forName("UTF-8");
-    private ByteBuffer byteBuffer = ByteBuffer.allocate(8196);
     Map<SelectableChannel, Client> clientMap = new HashMap<>();
 
     public void startServer() throws Exception {
@@ -48,14 +47,15 @@ public class NioFileReceiveServer {
                     // 非阻塞模式
                     socketChannel.configureBlocking(false);
                     // 通道注册
-                    SelectionKey selectionKey = socketChannel.register(selector, SelectionKey.OP_READ);
+                    socketChannel.register(selector, SelectionKey.OP_READ);
                     Client client = new Client();
                     client.remoteAddress = (InetSocketAddress) socketChannel.getRemoteAddress();
                     clientMap.put(socketChannel, client);
-                    log.info(socketChannel.getRemoteAddress() + "连接成功");
+                    log.info(socketChannel.getRemoteAddress() + "连接成功...");
                 } else if (sk.isReadable()) {
                     processData(sk);
                 }
+                iterator.remove();
             }
         }
     }
@@ -68,12 +68,17 @@ public class NioFileReceiveServer {
     private void processData(SelectionKey selectionKey) {
         Client client = clientMap.get(selectionKey.channel());
         SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
+        ByteBuffer byteBuffer = ByteBuffer.allocate(10240);
         int length = 0;
         try {
             byteBuffer.clear();
             while ((length = socketChannel.read(byteBuffer)) > 0) {
                 byteBuffer.flip();
+                // 首先处理文件名
                 if (null == client.fileName) {
+                    if (byteBuffer.capacity() < 4) {
+                        continue;
+                    }
                     // 文件名
                     String fileName = charset.decode(byteBuffer).toString();
                     String destPath = "E:\\server";
@@ -83,22 +88,38 @@ public class NioFileReceiveServer {
                     }
                     client.fileName = fileName;
                     String fullName = directory.getAbsolutePath() + File.separatorChar + fileName;
-                    log.info("NIO 传输目标文件: " + fullName);
+                    log.info("NIO 传输目标文件: " + fileName);
                     File file = new File(fullName);
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
                     FileChannel fileChannel = new FileOutputStream(file).getChannel();
                     client.outChannel = fileChannel;
-                } else if (0 == client.fileLength) {
+                } else if (0 == client.fileLength){
                     // 文件长度
                     long fileLength = byteBuffer.getLong();
                     client.fileLength = fileLength;
                     client.startTime = System.currentTimeMillis();
                     log.info("传输文件长度: " + fileLength);
-                } else {
-                    log.info("传输文件内容...");
+                    client.receiveLength = 0;
+                    log.info("传输开始...已接收字节数: " + client.receiveLength);
                     client.outChannel.write(byteBuffer);
+//                    if (client.isFinished()) {
+//                        log.info("传输完毕");
+//                        selectionKey.cancel();
+//                        long endTime = System.currentTimeMillis();
+//                        log.info("传输毫秒数: " + (endTime - client.startTime));
+//                    }
+                }
+                else{
+                    client.receiveLength += length;
+                    log.info("传输文件内容...已接收字节数: " + client.receiveLength);
+                    client.outChannel.write(byteBuffer);
+                    log.info("length: " + length);
                 }
                 byteBuffer.clear();
             }
+            log.info("length < 0 : " + length);
             selectionKey.cancel();
         } catch (IOException e) {
             selectionKey.cancel();
@@ -118,8 +139,14 @@ public class NioFileReceiveServer {
         String fileName;
         long fileLength;
         long startTime;
+        long receiveLength;
         InetSocketAddress remoteAddress;
         FileChannel outChannel;
+
+        public boolean isFinished()
+        {
+            return receiveLength >= fileLength;
+        }
     }
 
     public static void main(String[] args) throws Exception {
