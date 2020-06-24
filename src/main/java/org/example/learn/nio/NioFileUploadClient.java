@@ -22,8 +22,9 @@ public class NioFileUploadClient {
 
     public void sendFile() {
         try {
-            String filePath = "E:\\client\\test.csv";
-            String fileName = "test.csv";
+//            String filePath = "E:\\client\\test.csv";
+            String filePath = "E:\\client\\test.pdf";
+            String fileName = "test.pdf";
             File file = new File(filePath);
             if (! file.exists()) {
                 log.info("file not exist!");
