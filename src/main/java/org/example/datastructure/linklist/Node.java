@@ -1,4 +1,4 @@
-package org.example.algorithm.linklist;
+package org.example.datastructure.linklist;
 
 public class Node {
     int value;

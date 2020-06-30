@@ -1,4 +1,4 @@
-package org.example.algorithm.sort;
+package org.example.datastructure.sort;
 
 public class HeapSort {
     public static void main(String[] args) {

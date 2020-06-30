@@ -1,4 +1,4 @@
-package org.example.algorithm.stack;
+package org.example.datastructure.stack;
 
 import java.util.Stack;
 

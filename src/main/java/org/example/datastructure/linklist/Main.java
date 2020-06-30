@@ -1,6 +1,4 @@
-package org.example.algorithm.linklist;
-
-import com.sun.org.apache.xpath.internal.SourceTree;
+package org.example.datastructure.linklist;
 
 public class Main {
     public static void main(String[] args) {

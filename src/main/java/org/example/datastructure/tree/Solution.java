@@ -1,4 +1,4 @@
-package org.example.algorithm.tree;
+package org.example.datastructure.tree;
 
 import java.util.*;
 

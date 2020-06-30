@@ -1,4 +1,4 @@
-package org.example.algorithm.sort;
+package org.example.datastructure.sort;
 
 /**
  * 冒泡排序：O(n^2)，稳定

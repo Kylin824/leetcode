@@ -1,4 +1,4 @@
-package org.example.algorithm.search;
+package org.example.datastructure.search;
 
 public class BinarySearch {
     public static void main(String[] args) {
