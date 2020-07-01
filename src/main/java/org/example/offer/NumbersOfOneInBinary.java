@@ -31,8 +31,8 @@ public class NumbersOfOneInBinary {
         }
         // 负数
         else {
-            // 转正数
-            n = -n - 1;
+            // 转正数，数0个数
+            n = ~n;
             while (n != 0) {
                 count += n % 2;
                 n = n >> 1;
@@ -43,7 +43,16 @@ public class NumbersOfOneInBinary {
     }
 
     public static void main(String[] args) {
-        System.out.println(NumberOf1(-15));
-        System.out.println(NumberOf11(7));
+//        System.out.println(NumberOf1(-15));
+//        System.out.println(NumberOf11(7));
+
+        int n = -15;
+        String bin = Integer.toBinaryString(n);
+        System.out.println(bin);
+        n = ~n;
+//        n = n & 0xFFFFFFFF;
+        System.out.println(n);
+        bin = Integer.toBinaryString(n);
+        System.out.println(bin);
     }
 }
