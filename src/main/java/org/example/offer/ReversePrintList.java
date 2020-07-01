@@ -30,20 +30,20 @@ public class ReversePrintList {
         return res;
     }
 
-    public static ArrayList<Integer> printListFromTailToHead2(ListNode listNode) {
+    public static ArrayList<Integer> printListFromTailToHead2(ListNode head) {
         ArrayList<Integer> res = new ArrayList<>();
-
-        if (listNode == null)
+        ListNode cur = head;
+        if (cur == null)
             return res;
 
         ListNode pre = null;
-        ListNode next;
+        ListNode next = null;
 
-        while (listNode != null) {
-            next = listNode.next;
-            listNode.next = pre;
-            pre = listNode;
-            listNode = next;
+        while (cur != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
 
         ListNode ptr = pre;
