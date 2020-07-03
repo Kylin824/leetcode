@@ -1,5 +1,7 @@
 package org.example.offer;
 
+import java.util.ArrayList;
+
 public class UglyNumber {
     /*
         NO.32
@@ -9,8 +11,8 @@ public class UglyNumber {
         求按从小到大的顺序的第N个丑数。
      */
     /*
-        思路: 穷举
-            给定一个数:
+        思路:
+        1.穷举（复杂度太高）  给定一个数:
                 先 2x2x...x2 直到超过..
                 然后 2x2x..x3 直到超过..
                 最后 5x5x..x5直到超过..
@@ -26,15 +28,18 @@ public class UglyNumber {
                 5x5等于
                 5小于
 
+         2. 思路
+            丑数*2 *3 *5也是丑数
+
 
      */
 
-    public static int GetUglyNumber_Solution(int index) {
+    public static int getUglyNumber1(int index) {
         int i = 1;
         int count = 1;
         while (count != index) {
             if (isUglyNum(i)) {
-                System.out.println(i);
+//                System.out.println(i);
                 count++;
                 if (index == count)
                     return i;
@@ -80,7 +85,27 @@ public class UglyNumber {
         return false;
     }
 
+    public static int getUglyNumber2(int index) {
+        if (index <= 0)
+            return 0;
+        int[] uglyNums = new int[index];
+        int p2 = 0, p3 = 0, p5 = 0;
+        uglyNums[0] = 1;
+        for (int i = 1; i < index; i++) {
+            int newUglyNum = Math.min(Math.min(uglyNums[p2] * 2, uglyNums[p3] * 3), Math.min(uglyNums[p2] * 3, uglyNums[p5] * 5));
+            uglyNums[i] = newUglyNum;
+            if (newUglyNum % 2 == 0)
+                p2++;
+            if (newUglyNum % 3 == 0)
+                p3++;
+            if (newUglyNum % 5 == 0)
+                p5++;
+        }
+        return uglyNums[index - 1];
+    }
+
+
     public static void main(String[] args) {
-        System.out.println(GetUglyNumber_Solution(100));
+        System.out.println(getUglyNumber2(9));
     }
 }
