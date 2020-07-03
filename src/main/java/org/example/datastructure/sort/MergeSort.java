@@ -34,10 +34,10 @@ public class MergeSort {
 
 
     public static void main(String[] args) {
-        int[] array = {8, 24, 31, 5, 7, 10, 47, 16, 72, 50, 21, 89};
+        int[] array = {8, 2, 31, 5, 7, 10, 47, 16, 72, 50, 21, 89};
         mergeSort(array, 0, array.length - 1);
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int value : array) {
+            System.out.print(value + " ");
         }
 
     }

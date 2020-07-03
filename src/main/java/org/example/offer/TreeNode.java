@@ -1,7 +1,7 @@
 package org.example.offer;
 
-public class TreeNode {
-    int val = 0;
+class TreeNode {
+    int val;
     TreeNode left = null;
     TreeNode right = null;
 
@@ -10,3 +10,5 @@ public class TreeNode {
     }
 
 }
+
+
