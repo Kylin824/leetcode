@@ -1,10 +1,10 @@
 package org.example.datastructure.sort;
 
-public class InsertionSort {
+public class InsertSort {
     public static void main(String[] args) {
         int[] array = {8, 24, 31, 5, 7, 10, 47, 16, 72, 50, 21, 89};
 
-        InsertionSort is = new InsertionSort();
+        InsertSort is = new InsertSort();
 
         is.insertionSort(array);
 

@@ -1,10 +1,10 @@
 package org.example.datastructure.sort;
 
-public class SelectionSort {
+public class SelectSort {
     public static void main(String[] args) {
         int[] array = {8, 24, 31, 5, 7, 10, 47, 16, 72, 50, 21};
 
-        SelectionSort ss = new SelectionSort();
+        SelectSort ss = new SelectSort();
 
         ss.selectionSort(array);
 
