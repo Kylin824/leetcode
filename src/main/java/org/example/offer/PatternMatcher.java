@@ -28,23 +28,23 @@ public class PatternMatcher {
         else if (j == pattern.length)
             return false;
 
-        if (j + 1 < pattern.length &&  pattern[j + 1] != '*') {
+        if (j + 1 < pattern.length &&  pattern[j + 1] == '*') {
+            if (i < str.length && (pattern[j] == '.' || str[i] == pattern[j]))
+                return matchStr(str, i, pattern, j+2) || matchStr(str, i+1, pattern, j);
+            else
+                return matchStr(str, i, pattern, j+2);
+        }
+        else {
             // 下一个字符不为'*'
-            if (i < str.length && (str[i] == pattern[j] || pattern[j] == '.'))
+            if (i < str.length && (pattern[j] == '.' || str[i] == pattern[j]))
                 return matchStr(str, i+1, pattern, j+1);
             else
                 return false;
-        }
-        else {
-            if (i < str.length && (str[i] == pattern[j] || pattern[j] == '.'))
-                return matchStr(str, i+1, pattern, j) || matchStr(str, i, pattern, j+2);
-            else
-                return matchStr(str, i, pattern, j+2);
         }
     }
 
     public static void main(String[] args) {
 
-        System.out.println(match("aaa".toCharArray(), "ab*ac*a".toCharArray()));
+        System.out.println(match("a".toCharArray(), ".".toCharArray()));
     }
 }
