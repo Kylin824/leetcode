@@ -75,14 +75,14 @@ public class NextInOrderNodeInTree {
             return null;
 
         if (pNode.right != null) {
-            // 当前节点有右孩子，则下一个节点是有孩子节点的最左孩子节点 [2, 3, 6]
+            // 当前节点有右孩子，则下一个节点是有孩子节点的最左孩子节点  情况一：[2, 3, 6]
             pNode = pNode.right; // 从当前节点的右孩子开始
             while (pNode.left != null)
                 pNode = pNode.left; // 往左一直走
             return pNode;
         }
 
-        // 当前节点无右孩子，同时有父节点 [1,4]
+        // 当前节点无右孩子，同时有父节点   情况二：[1,4]
         while (pNode.next != null) {
             TreeLinkNode root = pNode.next; //指向父节点
             if (root.left == pNode) { // 遇到第一个有左节点的节点
