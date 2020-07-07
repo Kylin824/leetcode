@@ -2,8 +2,6 @@ package org.example.offer;
 
 import java.util.Arrays;
 
-import static org.example.offer.Utils.PreOrderTraverse;
-
 public class RebuildBinaryTree {
     /*
         NO.4
@@ -54,7 +52,7 @@ public class RebuildBinaryTree {
         int[] pre = {1,2,4,7,3,5,6,8};
         int[] in = {4,7,2,1,5,3,8,6};
         TreeNode root = reConstructBinaryTree(pre, in);
-        PreOrderTraverse(root);
+//        PreOrderTraverse(root);
 
     }
 }
