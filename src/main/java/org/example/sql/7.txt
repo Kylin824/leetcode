@@ -1,0 +1,17 @@
+查找薪水变动超过15次的员工号emp_no以及其对应的变动次数t
+CREATE TABLE `salaries` (
+`emp_no` int(11) NOT NULL,
+`salary` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`from_date`));
+
+// key: count、 group by、 having
+
+// count(*) 对行计数  count(col) 对指定列奇数（不包括null）
+// group by 以指定字段生成多个group  having过滤组  where过滤行
+
+SELECT emp_no, count(from_date) AS t
+FROM salaries
+GROUP BY emp_no
+HAVING count(from_date) > 15;

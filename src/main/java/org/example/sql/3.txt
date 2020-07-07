@@ -19,7 +19,7 @@ PRIMARY KEY (`emp_no`,`dept_no`));
 
 select s.*, d.dept_no
 from salaries s, dept_manager d  // 表起别名 as可以省略
-where s.to_date = '9999-01-01' and d.to_date = '9999-01-01' and s.emp_no = d.emp_no
+where s.emp_no = d.emp_no and s.to_date = '9999-01-01' and d.to_date = '9999-01-01'
 order by s.emp_no;
 
 // 法2: join(inner join)

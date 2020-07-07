@@ -1,4 +1,5 @@
-查找所有已经分配部门(dept_no)的员工的last_name和first_name以及dept_no(请注意输出描述里各个列的前后顺序)
+查找所有员工的last_name和first_name以及对应部门编号dept_no，
+也包括暂时没有分配具体部门的员工(请注意输出描述里各个列的前后顺序)
 
 CREATE TABLE `dept_emp` (
 `emp_no` int(11) NOT NULL,
@@ -16,13 +17,9 @@ CREATE TABLE `employees` (
 `hire_date` date NOT NULL,
 PRIMARY KEY (`emp_no`));
 
-// where
-
+// left  join : 返回包括左表中的所有记录和右表中联结字段相等的记录
+// inner join : 只返回两个表中联结字段相等的行
 SELECT e.last_name, e.first_name, d.dept_no
-FROM employees e, dept_emp d
-WHERE e.emp_no = d.emp_no;
-
-// join
-SELECT e.last_name, e.first_name, d.dept_no
-FROM employees e JOIN dept_emp d
+FROM employees e LEFT JOIN dept_emp d
 ON e.emp_no = d.emp_no;
+
