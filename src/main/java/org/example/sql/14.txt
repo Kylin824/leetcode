@@ -1,0 +1,23 @@
+从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。
+注意对于重复的emp_no进行忽略(即emp_no重复的title不计算，title对应的数目t不增加)。
+
+CREATE TABLE IF NOT EXISTS `titles` (
+`emp_no` int(11) NOT NULL,
+`title` varchar(50) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date DEFAULT NULL);
+
+
+// 法1: 在count中加入distinct '指定列'就可以在计算行数时去掉指定列中重复的值
+SELECT title, COUNT(DISTINCT emp_no) t
+FROM titles
+GROUP BY title
+HAVING t>=2;
+
+// 法2: select (select)
+// 当DISTINCT应用到多个字段时，其应用范围是其后面的所有字段，而不是紧挨它的一个字段
+
+select title, count(title) as t
+from (select distinct emp_no, title from titles)
+group by title
+having count(title) >= 2;
