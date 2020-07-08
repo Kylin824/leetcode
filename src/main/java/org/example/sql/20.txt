@@ -1,0 +1,22 @@
+查找员工编号emp_no为10001其自入职以来的薪水salary涨幅(总共涨了多少)growth(可能有多次涨薪，没有降薪)
+
+CREATE TABLE `salaries` (
+`emp_no` int(11) NOT NULL,
+`salary` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`from_date`));
+
+// select ( 最新工资 ) - ( 入职工资 ) as growth
+
+// 最新工资 =
+          SELECT salary
+          FROM salaries
+          WHERE emp_no=10001
+          ORDER BY to_date desc limit 1
+
+// 入职工资 =
+          SELECT salary
+          FROM salaries
+          WHERE emp_no=10001
+          ORDER BY from_date limit 1
