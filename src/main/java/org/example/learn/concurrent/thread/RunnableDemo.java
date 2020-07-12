@@ -7,12 +7,17 @@ public class RunnableDemo {
 //        Thread t2 = new Thread(mt, "Thread-B");
 //        t1.start();
 //        t2.start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("hello lambda");
-            }
-        }).start();
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("hello lambda");
+//            }
+//        }).start();
+
+//        new Thread(() -> System.out.println("hello lambda"));
+
+        Thread t = new
 
     }
 }
