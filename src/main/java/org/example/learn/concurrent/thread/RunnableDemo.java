@@ -1,5 +1,7 @@
 package org.example.learn.concurrent.thread;
 
+import java.text.DecimalFormat;
+
 public class RunnableDemo {
     public static void main(String[] args) {
 //        MyThread mt = new MyThread();
@@ -16,9 +18,16 @@ public class RunnableDemo {
 //        }).start();
 
 //        new Thread(() -> System.out.println("hello lambda"));
-
-        Thread t = new
-
+        float money1 = 3.3333f;
+        float money2 = 6.6666f;
+        System.out.println(money1 * 10000);
+        int mon1 = (int)(money1 * 10000);
+        int mon2 = (int)(money2 * 10000);
+        System.out.println(money1 + money2);
+        DecimalFormat df=new DecimalFormat("0.0000");//设置保留位数
+        System.out.println((mon1+mon2) / 10000);
+        System.out.println(mon1+mon2);
+        System.out.println(df.format((float)(mon1+mon2) / 10000));
     }
 }
 

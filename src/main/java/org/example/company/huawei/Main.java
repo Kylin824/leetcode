@@ -1,4 +1,4 @@
-package org.example.huawei;
+package org.example.company.huawei;
 import java.util.*;
 
 public class Main {
