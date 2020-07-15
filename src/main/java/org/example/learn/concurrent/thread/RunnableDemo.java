@@ -17,7 +17,6 @@ public class RunnableDemo {
 
 //        new Thread(() -> System.out.println("hello lambda"));
 
-        Thread t = new
 
     }
 }

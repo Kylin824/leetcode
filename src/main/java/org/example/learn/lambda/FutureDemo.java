@@ -7,6 +7,6 @@ import java.util.concurrent.Future;
 public class FutureDemo {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        Future<Double> future
+
     }
 }
