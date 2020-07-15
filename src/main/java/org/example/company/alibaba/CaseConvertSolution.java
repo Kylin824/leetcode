@@ -1,6 +1,6 @@
 package org.example.company.alibaba;
 
-public class NameConvertSolution {
+public class CaseConvertSolution {
 
     public static void main(String[] args) {
         String input = "my_book_name";
