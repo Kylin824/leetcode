@@ -6,6 +6,9 @@ public class Student {
     private Integer age;
     private Integer score;
 
+    public Student() {
+    }
+
     public Student(String name, String gender, Integer age, Integer score) {
         this.name = name;
         this.gender = gender;
@@ -53,5 +56,20 @@ public class Student {
                 ", age=" + age +
                 ", score=" + score +
                 '}';
+    }
+
+    public String selfIntroduce(int index) {
+        String string = null;
+        switch (index) {
+            case 0:
+                string = "index 0 !";
+                break;
+            case 1:
+                string = "index 1 !";
+                break;
+            default:
+                string = "index 2 !";
+        }
+        return string;
     }
 }

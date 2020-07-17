@@ -17,7 +17,7 @@ public class ThreadPoolDemo {
 
         // 向线程池添加新任务
         executorService.execute(tt1);
-        executorService.execute(tt2);
+        executorService.submit(tt2);
 
         BigInteger bi = new BigInteger(String.valueOf(100));
         System.out.println(bi.intValue());
