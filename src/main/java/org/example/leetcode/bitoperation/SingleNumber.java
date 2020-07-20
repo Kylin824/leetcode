@@ -1,11 +1,11 @@
-package org.example.leetcode;
+package org.example.leetcode.bitoperation;
 
-public class NumAppearOnceInArray {
+public class SingleNumber {
     /*
         LC15 现在有一个整数类型的数组，数组中素只有一个元素只出现一次，其余的元素都出现两次。
      */
 
-    public int singleNumber (int[] A) {
+    public int findSingleNumber (int[] A) {
         if (A.length <= 0)
             return 0;
         int ret = A[0];

@@ -1,4 +1,6 @@
-package org.example.leetcode;
+package org.example.leetcode.tree;
+
+import org.example.leetcode.TreeNode;
 
 public class IsSameTree {
     /*
