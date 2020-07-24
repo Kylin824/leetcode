@@ -8,5 +8,9 @@ public class MdHex {
     public static void main(String[] args) {
         String key = String.format(KEY_PATTERN, DigestUtils.md5Hex("00010812-B043-4E17-837D-8D8E568CF0AB"));
         System.out.println(key);
+        String str = "abcdefg";
+        System.out.println(str.substring(2));
+        System.out.println(str.substring(0,2));
+        System.out.println(str.substring(0,1));
     }
 }
