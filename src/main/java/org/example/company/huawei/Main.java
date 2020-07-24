@@ -1,73 +1,37 @@
 package org.example.company.huawei;
-import java.util.*;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int m = sc.nextInt();
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-
-
-        int max_r = 0;
-        int max_l = 0;
-
-        int[][] input = new int[n][m];
+        int[] flag = new int[n];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                input[i][j] = (i+1) * (j+1) % 10;
-                if (input[i][j] == 9) {
-                    max_r = i;
-                    max_l = j;
+            flag[i] = 1;
+            int pages = sc.nextInt();
+            int[] arr = new int[pages];
+            for (int j = 0; j < pages; j++) {
+                arr[j] = sc.nextInt();
+            }
+            int count = 0;
+            int min = 0;
+            for (int k = 0; k < arr.length; k++) {
+                count++;
+                min += arr[k];
+                if (count >= 4 && min <= 60) {
+                    flag[i] = 0;
+                    break;
+                } else if (count <= 4 && min > 60) {
+                    min = min % 60;
+                    count = 0;
                 }
             }
         }
-
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                System.out.print(input[i][j] + " ");
-            }
-            System.out.println();
+            System.out.println(flag[i]);
         }
 
-        int[][] pooled = new int[n-a+1][m-b+1];
-
-//        int count = 0;
-//        for (int i = 0; i < n-a+1; i++) {
-//            for (int j = 0; j < m-b+1; j++) {
-//                count++;
-//            }
-//        }
-
-        int count = (n-a+1) * (m-b+1);
-//        System.out.println(count);
-        int sum = 0;
-
-        for (int c = 0; c < count; c++) {
-            int max = 0;
-            int r = 0;
-            int l = 0;
-
-            if (c % (n-a+1) <=max_r && c % (n-a+1) + a - 1 >= max_r
-                    && c % (m-b+1) <= max_l && c % (m-b+1) + b - 1 >= max_l) {
-                pooled[c % (n-a+1)][c % (m-b+1)] = 9;
-            }
-            else {
-                for (r = c % (n-a+1); r < c % (n-a+1) + a; r++) {
-                    for (l = c % (m-b+1); l < c % (m-b+1) + b; l++) {
-
-                        if (input[r][l] > max) {
-                            max = input[r][l];
-                        }
-                    }
-                }
-                pooled[c % (n-a+1)][c % (m-b+1)] = max;
-            }
-            sum += pooled[c % (n-a+1)][c % (m-b+1)];
-        }
-
-        System.out.println(sum);
+        System.out.println(3/2);
     }
-
 }
