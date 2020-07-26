@@ -1,4 +1,4 @@
-package org.example.datastructure.dp;
+package org.example.company.huawei.dp;
 
 import java.util.Scanner;
 
