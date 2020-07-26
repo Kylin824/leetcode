@@ -3,7 +3,9 @@ package org.example.company.huawei.dp;
 import java.util.Scanner;
 
 public class MaxSubString {
-    // 最长公共子串
+    /*
+        HJ75  最长公共子串长度
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {

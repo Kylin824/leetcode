@@ -27,19 +27,19 @@ public class PasswordLevel {
             int symbol = 0;
 
             for (int i = 0; i < str.length(); i++) {
-                if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z' && !lowerCase) {
+                if (Character.isLowerCase(str.charAt(i)) && !lowerCase) {
                     score += 10;
                     lowerCase = true;
                 }
-                if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z' && !upperCase) {
+                if (Character.isUpperCase(str.charAt(i)) && !upperCase) {
                     score += 10;
                     upperCase = true;
                 }
-                if (num == 0 && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+                if (num == 0 && Character.isDigit(str.charAt(i))) {
                     score += 10;
                     num++;
                 }
-                if (num == 1 && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+                if (num == 1 && Character.isDigit(str.charAt(i))) {
                     score += 10;
                     num++;
                 }
