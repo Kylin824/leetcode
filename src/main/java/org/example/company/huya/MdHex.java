@@ -12,5 +12,6 @@ public class MdHex {
         System.out.println(str.substring(2));
         System.out.println(str.substring(0,2));
         System.out.println(str.substring(0,1));
+        System.out.println(DigestUtils.md5Hex("862756043583495"));
     }
 }
