@@ -12,5 +12,8 @@ public class Main {
         System.out.printf("%.2f", random.nextFloat());
         System.out.println();
         System.out.println("pro: " + Runtime.getRuntime().availableProcessors());
+
+        System.out.println(5/2);
+        System.out.println((float) 5/2);
     }
 }
