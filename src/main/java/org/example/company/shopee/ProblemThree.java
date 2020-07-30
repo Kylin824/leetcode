@@ -7,7 +7,7 @@ import scala.Int;
 
 import java.util.ArrayList;
 
-public class Solution {
+public class ProblemThree {
 
     public static ListNode reverseLinkedList(ListNode head, int n) {
         // write code here

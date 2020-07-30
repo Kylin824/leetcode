@@ -5,7 +5,7 @@ import org.example.offer.TreeNode;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PTwo {
+public class ProblemTwo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
