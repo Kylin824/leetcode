@@ -38,6 +38,8 @@ public class Main {
         System.out.println(DigestUtils.md5Hex("862756043583495"));
         System.out.println(DigestUtils.md5Hex("Huya2020"));
         System.out.println(DigestUtils.md5Hex("__IMEI2__"));
+        System.out.println(DigestUtils.md5Hex("862498044040197"));
+        System.out.println("test");
         long time  = 1597146138844L;
         System.out.println(time / 1000);
         System.out.println((int)(time / 1000));
@@ -46,10 +48,10 @@ public class Main {
 //        String strIp = "183.199.130.166";
 //        String strIp = "183|199|130|166";
 //        String strIp = "183\\199\\130\\166";
-        String strIp = "";
-        String[]ip = strIp.split("\\\\");
-        System.out.println(ip.length);
-        System.out.println((Long.parseLong(ip[0]) << 24) + (Long.parseLong(ip[1]) << 16) + (Long.parseLong(ip[2]) << 8) + Long.parseLong(ip[3]));
+//        String strIp = "";
+//        String[]ip = strIp.split("\\\\");
+//        System.out.println(ip.length);
+//        System.out.println((Long.parseLong(ip[0]) << 24) + (Long.parseLong(ip[1]) << 16) + (Long.parseLong(ip[2]) << 8) + Long.parseLong(ip[3]));
 //        System.out.println((Integer.parseInt(ip[0]) << 24) + (Integer.parseInt(ip[1]) << 16) + (Integer.parseInt(ip[2]) << 8) + Integer.parseInt(ip[3]));
 //
 //        System.out.println(Long.valueOf("10110111110001111000001010100110", 2));
