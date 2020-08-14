@@ -1,5 +1,8 @@
 package org.example;
 
+import org.apache.commons.codec.digest.DigestUtils;
+import scala.Int;
+
 import java.util.Random;
 
 public class Main {
@@ -31,5 +34,27 @@ public class Main {
                 "mid, imei, mac, ip, oaid \n" +
                 ") t2 on (t1.mid=t2.mid) WHERE t2.mid IS NOT NULL";
         System.out.println(sql1);
+        System.out.println(DigestUtils.md5Hex("868396045267963"));
+        System.out.println(DigestUtils.md5Hex("862756043583495"));
+        System.out.println(DigestUtils.md5Hex("Huya2020"));
+        System.out.println(DigestUtils.md5Hex("__IMEI2__"));
+        long time  = 1597146138844L;
+        System.out.println(time / 1000);
+        System.out.println((int)(time / 1000));
+        System.out.println(Integer.MAX_VALUE);
+
+//        String strIp = "183.199.130.166";
+//        String strIp = "183|199|130|166";
+//        String strIp = "183\\199\\130\\166";
+        String strIp = "";
+        String[]ip = strIp.split("\\\\");
+        System.out.println(ip.length);
+        System.out.println((Long.parseLong(ip[0]) << 24) + (Long.parseLong(ip[1]) << 16) + (Long.parseLong(ip[2]) << 8) + Long.parseLong(ip[3]));
+//        System.out.println((Integer.parseInt(ip[0]) << 24) + (Integer.parseInt(ip[1]) << 16) + (Integer.parseInt(ip[2]) << 8) + Integer.parseInt(ip[3]));
+//
+//        System.out.println(Long.valueOf("10110111110001111000001010100110", 2));
+//
+//        System.out.println(Integer.MAX_VALUE);
+
     }
 }
