@@ -18,10 +18,22 @@ public class RemoveElement {
         return index;
     }
 
+    public static int removeQuickSolution(int[] nums, int val) {
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+        return index;
+    }
+
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,6,7,7,7,8,8,9,9,9,9};
 
-        System.out.println(removeElement(arr, 7));
+//        System.out.println(removeElement(arr, 7));
+        System.out.println(removeQuickSolution(arr, 7));
         for (int i : arr) {
             System.out.print(i + " ");
         }
