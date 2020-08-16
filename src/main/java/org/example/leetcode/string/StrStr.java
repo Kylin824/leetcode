@@ -9,7 +9,41 @@ public class StrStr {
 
      */
 
-    public int strStr(String haystack, String needle) {
+    // quick solution
+    // 单纯比较头超时   同时比较头尾
+    // 正解是kmp
 
+    public static int strStr(String haystack, String needle) {
+
+        if  ("".equals(needle))
+            return 0;
+        if ("".equals(haystack))
+            return -1;
+        char first = needle.charAt(0);
+        for (int i = 0; i < haystack.length(); i++) {
+            if (haystack.charAt(i) == first) {
+                int last = needle.charAt(needle.length() - 1);
+                if (i + needle.length() - 1 < haystack.length() && haystack.charAt(i + needle.length() - 1) == last) {
+                    int h = i;
+                    int n = 0;
+                    while (h < haystack.length() && n < needle.length() && haystack.charAt(h) == needle.charAt(n)) {
+                        h++;
+                        n++;z
+                    }
+                    if (n == needle.length()) {
+                        return i;
+                    }
+                }
+
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        String h = "hello";
+        String n = "ll";
+        System.out.println(strStr(h, n));
+        System.out.println("".length());
     }
 }
