@@ -15,6 +15,35 @@ public class CountAndSay {
      */
 
     public static String qs(int n) {
+        if (n == 1) return "1";
+        if (n == 2) return "11";
+        String[] strs = new String[n];
+        strs[0] = "1";
+        strs[1] = "11";
+        for (int i = 2; i < strs.length; i++) {
+            StringBuilder cur = new StringBuilder();
+            String pre = strs[i - 1];
+            int count = 1;
+            char now = pre.charAt(0);
+            for (int j = 1; j < pre.length(); j++) {
+                if (pre.charAt(j) == now) {
+                    count++;
+                }
+                else if (pre.charAt(j) != now){
+                    cur.append(count).append(now);
+                    now = pre.charAt(j);
+                    count = 1;
+                }
+                if (j == pre.length() - 1){
+                    cur.append(count).append(now);
+                }
+            }
+            strs[i] = cur.toString();
+        }
+        return strs[n - 1];
+    }
 
+    public static void main(String[] args) {
+        System.out.println(qs(6));
     }
 }

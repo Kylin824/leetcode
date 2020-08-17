@@ -28,7 +28,7 @@ public class StrStr {
                     int n = 0;
                     while (h < haystack.length() && n < needle.length() && haystack.charAt(h) == needle.charAt(n)) {
                         h++;
-                        n++;z
+                        n++;
                     }
                     if (n == needle.length()) {
                         return i;
