@@ -35,7 +35,6 @@ public class Main {
                 ") t2 on (t1.mid=t2.mid) WHERE t2.mid IS NOT NULL";
         System.out.println(sql1);
         System.out.println(DigestUtils.md5Hex("868396045267963"));
-        System.out.println(DigestUtils.md5Hex("862756043583495"));
         System.out.println(DigestUtils.md5Hex("Huya2020"));
         System.out.println(DigestUtils.md5Hex("__IMEI2__"));
         System.out.println(DigestUtils.md5Hex("862498044040197"));
@@ -44,6 +43,7 @@ public class Main {
         System.out.println(time / 1000);
         System.out.println((int)(time / 1000));
         System.out.println(Integer.MAX_VALUE);
+        System.out.println(DigestUtils.md5Hex("862756043583495"));
 
 //        String strIp = "183.199.130.166";
 //        String strIp = "183|199|130|166";

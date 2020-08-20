@@ -7,10 +7,10 @@ public class DepthOfTree {
     104. 二叉树最大深度
      */
 
-    public int qs(TreeNode root) {
+    public int depth(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        return Math.max(qs(root.left), qs(root.right)) + 1;
+        return Math.max(depth(root.left), depth(root.right)) + 1;
     }
 }

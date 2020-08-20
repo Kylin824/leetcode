@@ -14,7 +14,7 @@ public class IsBalancedTree {
     public static boolean isBalancedTree(TreeNode root) {
         if (root == null)
             return true;
-        return Math.abs(treeDepth(root.left) - treeDepth(root.right)) <= 1;
+        return Math.abs(treeDepth(root.left) - treeDepth(root.right)) <= 1 && isBalancedTree(root.left) && isBalancedTree(root.right);
     }
 
     public static int treeDepth(TreeNode root) {
