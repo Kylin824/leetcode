@@ -9,21 +9,28 @@ public class SortedArrayToBST {
     108.将有序数组转换为高度平衡二叉搜索树
     保证 每个节点 的左右两个子树的高度差的绝对值不超过 1。
 
-    利用数组已排序的特点 二分查找
+    利用数组已排序的特点
      */
 
     public static TreeNode buildBST(int[] nums) {
-        return build(nums, 0, nums.length);
+        return build(nums);
     }
 
-    public static TreeNode build(int[] nums, int left, int right) {
+    public static TreeNode build(int[] nums) {
+        if (nums.length == 0) {
+            return null;
+        }
         if (nums.length == 1) {
             return new TreeNode(nums[0]);
         }
-        int mid = left + () / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left = buildBST(Arrays.copyOfRange(nums, 0, mid));
-        root.right = buildBST(Arrays.copyOfRange(nums, mid, nums.length));
+        int cur = nums.length / 2;
+        TreeNode root = new TreeNode(nums[cur]);
+        if (cur > 0) {
+            root.left = build(Arrays.copyOfRange(nums, 0, cur));
+        }
+        if (cur + 1 < nums.length) {
+            root.right = build(Arrays.copyOfRange(nums, cur + 1, nums.length));
+        }
         return root;
     }
 
