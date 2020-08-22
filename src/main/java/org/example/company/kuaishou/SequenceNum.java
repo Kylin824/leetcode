@@ -1,6 +1,8 @@
-package org.example;
-import java.util.*;
-public class Main {
+package org.example.company.kuaishou;
+
+import java.util.HashSet;
+
+public class SequenceNum {
     public static void main(String[] args){
         int[] arr = {100, 5, 77, 4, 88, 6, 7, 8, 99, 33};
         HashSet<Integer> set = new HashSet<Integer>();
