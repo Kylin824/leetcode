@@ -20,8 +20,10 @@ public class ReverseList {
 
         while (cur != null) {
             next = cur.next;
+
             cur.next = pre;
             pre = cur;
+
             cur = next;
         }
         return pre;
