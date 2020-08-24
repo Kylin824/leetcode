@@ -45,6 +45,7 @@ public class SequenceAsSum {
         return ret.toArray(new int[0][]);
     }
 
+    // 0ms
     public static int[][] findContinuousSequence1(int target) {
 
         List<int[]> result = new ArrayList<>();
