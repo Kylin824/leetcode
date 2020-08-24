@@ -30,7 +30,7 @@ public class ContinousSeqAsGivenSum {
             }
             else if (sumOfWindow > sum) {
                 sumOfWindow -= left;
-                left--; // 窗口左减
+                left++; // 窗口左减
             }
             else {
                 ArrayList<Integer> seq = new ArrayList<>();
