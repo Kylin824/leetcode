@@ -28,18 +28,18 @@ public class MaxNumInWindow {
 
      */
 
-    public ArrayList<Integer> maxInWindows(int[] num, int size)
+    public ArrayList<Integer> maxInWindows(int[] nums, int k)
     {
         ArrayList<Integer> res = new ArrayList<>();
-        if (size <= 0 || num.length <= 0)
+        if (k <= 0 || nums.length <= 0)
             return res;
-        for (int i = 0; i < num.length - size + 1; i++) {
-            int min = num[i];
-            for (int j = i; j < i + size; j++) {
-                if (num[j] > min)
-                    min = num[j];
+        for (int i = 0; i < nums.length - k + 1; i++) {
+            int max = nums[i];
+            for (int j = i; j < i + k; j++) {
+                if (nums[j] > max)
+                    max = nums[j];
             }
-            res.add(min);
+            res.add(max);
         }
         return res;
     }
