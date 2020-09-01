@@ -14,7 +14,7 @@ public class LastKInLinkList {
     public static ListNode FindKthToTail(ListNode head, int k) {
         ListNode fast = head;
         while (k > 0) {
-            if (fast == null)
+            if (fast == null) // k超出范围，无效
                 return null;
             fast = fast.next;
             k--;

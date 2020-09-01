@@ -34,7 +34,7 @@ public class MinStack {
                 extStack.push(x);
             }
             else {
-                extStack.push(extStack.peek()); // 最小值再次入栈
+                extStack.push(extStack.peek()); // **最小值再次入栈**
             }
         }
     }
