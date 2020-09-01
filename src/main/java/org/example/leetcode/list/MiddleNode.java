@@ -29,7 +29,8 @@ public class MiddleNode {
             p = p.next;
         }
         p = head;
-        count /= 2;
+//        count /= 2;
+        count = count / 2 - 1;
         while (count-- > 0) {
             p = p.next;
         }
