@@ -45,5 +45,4 @@ public class FirstCommonNodeOfTwoList {
         }
         return p1 == p2 ? p1 : null;
     }
-
 }

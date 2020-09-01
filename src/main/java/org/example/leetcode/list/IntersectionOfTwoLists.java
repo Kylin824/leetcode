@@ -41,12 +41,4 @@ public class IntersectionOfTwoLists {
         }
         return p1 == p2 ? p1 : null;
     }
-
-    public static void main(String[] args) {
-        ListNode p1 = new ListNode(2);
-        p1.next = new ListNode(3);
-        ListNode p2 = p1.next;
-        ListNode ret = getIntersectionNode(p1, p2);
-
-    }
 }
