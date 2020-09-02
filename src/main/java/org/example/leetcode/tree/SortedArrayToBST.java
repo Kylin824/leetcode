@@ -13,10 +13,6 @@ public class SortedArrayToBST {
      */
 
     public static TreeNode buildBST(int[] nums) {
-        return build(nums);
-    }
-
-    public static TreeNode build(int[] nums) {
         if (nums.length == 0) {
             return null;
         }
@@ -26,10 +22,10 @@ public class SortedArrayToBST {
         int cur = nums.length / 2;
         TreeNode root = new TreeNode(nums[cur]);
         if (cur > 0) {
-            root.left = build(Arrays.copyOfRange(nums, 0, cur));
+            root.left = buildBST(Arrays.copyOfRange(nums, 0, cur));
         }
         if (cur + 1 < nums.length) {
-            root.right = build(Arrays.copyOfRange(nums, cur + 1, nums.length));
+            root.right = buildBST(Arrays.copyOfRange(nums, cur + 1, nums.length));
         }
         return root;
     }
