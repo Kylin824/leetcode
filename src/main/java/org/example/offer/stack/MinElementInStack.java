@@ -44,6 +44,8 @@ public class MinElementInStack {
         return minStack.peek();
     }
 
+
+
     int min = Integer.MAX_VALUE;
 
     public void push1(int node) {
