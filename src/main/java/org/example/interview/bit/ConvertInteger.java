@@ -34,6 +34,14 @@ public class ConvertInteger {
         return count;
     }
 
+    public static int convertIntegerOpt(int A, int B) {
+        int count = 0;
+        for (int C = A ^ B; C != 0; C = C >>> 1) {
+            count += C & 1;
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         System.out.println(Integer.toBinaryString(-729934991));
         System.out.println(Integer.toBinaryString(-729934991 >> 1));
