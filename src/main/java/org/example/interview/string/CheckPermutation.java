@@ -27,11 +27,11 @@ public class CheckPermutation {
         return true;
     }
 
-    public boolean CheckPermutation1(String s1, String s2) {
+    public boolean CheckPermutationOpt(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
         }
-        int[] count = new int[128];
+        int[] count = new int[128]; // map
         for (int i = 0; i < s1.length(); i++) {
             count[s1.charAt(i)]++;
             count[s2.charAt(i)]--;

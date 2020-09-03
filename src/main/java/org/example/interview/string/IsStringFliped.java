@@ -10,7 +10,7 @@ public class IsStringFliped {
     s1 = s1+s1
     return s1.contains(s2)
      */
-    public static boolean isFlipedString(String s1, String s2) {
+    public static boolean isFlipedStringOpt(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false; // 长度不等
         }

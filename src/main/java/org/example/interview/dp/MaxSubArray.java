@@ -1,4 +1,4 @@
-package org.example.interview.array;
+package org.example.interview.dp;
 
 public class MaxSubArray {
     /*
