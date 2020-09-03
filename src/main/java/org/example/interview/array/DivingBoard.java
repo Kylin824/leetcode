@@ -1,4 +1,4 @@
-package org.example.interview.recur;
+package org.example.interview.array;
 
 import java.util.ArrayList;
 
