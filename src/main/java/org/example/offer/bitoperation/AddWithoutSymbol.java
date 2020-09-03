@@ -15,7 +15,7 @@ public class AddWithoutSymbol {
             (10 & 10) << 1 = 100
 
      */
-    public int Add(int num1,int num2) {
+    public int Add(int num1, int num2) {
         int result = 0;
         int carry = 0;
         do {
@@ -25,5 +25,15 @@ public class AddWithoutSymbol {
             num2 = carry;
         } while (carry != 0);
         return result;
+    }
+
+    public int Add1(int num1, int num2) {
+        while (num2 != 0) {
+            int sum = num1 ^ num2;
+            int carry = (num1 & num2) << 1;
+            num1 = sum;
+            num2 = carry;
+        }
+        return num1;
     }
 }
