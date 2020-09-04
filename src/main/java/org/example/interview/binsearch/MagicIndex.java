@@ -1,6 +1,4 @@
-package org.example.interview.bsearch;
-
-import java.awt.image.Kernel;
+package org.example.interview.binsearch;
 
 public class MagicIndex {
     /*
@@ -15,7 +13,7 @@ public class MagicIndex {
     3. 二分查找
     */
 
-    public int findMagicIndex1(int[] nums) {
+    public int findMagicIndexForce(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == i)
                 return i;
@@ -23,7 +21,7 @@ public class MagicIndex {
         return -1;
     }
 
-    public int findMagicIndexOpt1(int[] nums) {
+    public int findMagicIndexForceOpt(int[] nums) {
         int i = 0;
         while (i < nums.length) {
             if (nums[i] == i)
@@ -33,7 +31,7 @@ public class MagicIndex {
         return -1;
     }
 
-    public int findMagicIndexBSOpt(int[] nums) {
+    public int findMagicIndexBinSearch(int[] nums) {
         return find(nums, 0, nums.length - 1);
     }
 
