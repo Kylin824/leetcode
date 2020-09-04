@@ -39,20 +39,20 @@ public class RotateMatrix {
     */
     public static void rotate(int[][] matrix) {
         int n = matrix.length;
-        int tmp = 0;
+        int tmp;
         for (int i = 0; i < n - 1; i++) {
-            for (int j = i; j < n - 1 - i; j++) {  // ij
-                tmp = matrix[i][j];
-                matrix[i][j] = matrix[j][n-1-i];
-                matrix[j][n-1-i] = matrix[n-1-i][n-1-j];
-                matrix[n-1-j][n-1-j] = matrix[n-1-j][i];
-                matrix[n-1-j][i] = tmp;
+            for (int j = i; j < n - 1 - i; j++) {
+                tmp = matrix[i][j];  // 左上[i][j]
+                matrix[i][j] = matrix[n-1-j][i]; // 左下[n-1-j][i]
+                matrix[n-1-j][i] = matrix[n-1-i][n-1-j]; // 右下[n-1-i][n-1-j]
+                matrix[n-1-i][n-1-j] = matrix[j][n-1-i]; // 右上[j][n-1-i]
+                matrix[j][n-1-i] = tmp;
             }
         }
     }
 
     public static void main(String[] args) {
-        int n = 3;
+        int n = 4;
         for (int i = 0; i < n - 1; i++) {
             for (int j = i; j < n - 1 - i; j++) {  // ij
                 System.out.print(i + "" + j + " ");
@@ -62,7 +62,5 @@ public class RotateMatrix {
                 System.out.println();
             }
         }
-
-
     }
 }
