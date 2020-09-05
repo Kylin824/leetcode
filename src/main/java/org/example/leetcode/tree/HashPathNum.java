@@ -2,7 +2,7 @@ package org.example.leetcode.tree;
 
 import org.example.leetcode.TreeNode;
 
-public class PathNum {
+public class HashPathNum {
     /*
     112. 路径总和
      */
