@@ -22,8 +22,7 @@ public class FindRingInList {
                     2、慢指针==快指针，说明在环中相遇，返回true
      */
 
-    public static ListNode EntryNodeOfLoop(ListNode pHead)
-    {
+    public static ListNode EntryNodeOfLoop(ListNode pHead) {
         Map<ListNode, Integer> map = new HashMap<>();
         while (pHead != null) {
             if (map.get(pHead) == null) {

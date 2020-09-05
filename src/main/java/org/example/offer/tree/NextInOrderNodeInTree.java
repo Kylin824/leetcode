@@ -44,7 +44,7 @@ public class NextInOrderNodeInTree {
         }
     }
 
-    public TreeLinkNode GetNext(TreeLinkNode pNode) {
+    public TreeLinkNode getNext(TreeLinkNode pNode) {
         TreeLinkNode root = null;
         TreeLinkNode tmp = pNode;
         // 找到根节点
