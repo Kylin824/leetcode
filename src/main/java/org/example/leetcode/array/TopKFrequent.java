@@ -43,7 +43,7 @@ public class TopKFrequent {
                 if (i == k){
                     // 数据填满，调整为小根堆
                     for (int j = k / 2 - 1; j >= 0; j--) {
-                        heapSort(heap, j);
+                        minHeapAdjust(heap, j);
                     }
                     i++;
                 }
@@ -52,14 +52,14 @@ public class TopKFrequent {
                 // 小根堆已建好，对每个元素与堆顶比较，比堆顶大则替换堆顶，重新调整小根堆
                 if (map.get(key) > map.get(heap[0])) {
                     heap[0] = key;
-                    heapSort(heap, 0);
+                    minHeapAdjust(heap, 0);
                 }
             }
         }
         return heap;
     }
 
-    public void heapSort(int[] heap, int i) {
+    public void minHeapAdjust(int[] heap, int i) {
         int tmp = heap[i];
         for (int j = 2 * i + 1; j < heap.length; j = 2 * j + 1) {
             if (j + 1 < heap.length && map.get(heap[j]) > map.get(heap[j + 1]))
