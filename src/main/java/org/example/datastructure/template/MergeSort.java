@@ -3,19 +3,27 @@ package org.example.datastructure.template;
 import java.util.Arrays;
 
 public class MergeSort {
+
     public static void main(String[] args) {
+
         int[] arr = {9, 5, 2, 3, 7, 1, 6, 8, 4, 0};
+
         mergeSort(arr, 0, arr.length - 1);
+
         System.out.println(Arrays.toString(arr));
     }
 
     public static void mergeSort(int[] arr, int low, int high) {
+
         if (low >= high)
             return;
+
         int mid = low + (high - low) / 2;
+
         mergeSort(arr, low, mid);  // 左半部分 low到mid排好序
         mergeSort(arr, mid + 1, high); // 右半部分 mid+1到high排好序
-        mergeArray(arr, low, mid, high); // 合并左右
+
+        mergeArray(arr, low, mid, high); // 合并左右排好序的部分
     }
 
     public static void mergeArray(int[] arr, int low, int mid, int high) {
@@ -27,13 +35,11 @@ public class MergeSort {
         while (i <= mid && j <= high) {
             if (arr[i] <= arr[j]) {
                 tmp[k] = arr[i];  // 小的排前面
-                k++;
-                i++;
+                k++; i++;
             }
             else {
                 tmp[k] = arr[j];
-                k++;
-                j++;
+                k++; j++;
             }
         }
         // 如果右边已加完(j > high)，把左边剩余的全加进去

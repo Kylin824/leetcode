@@ -5,9 +5,12 @@ import java.util.Arrays;
 public class HeapSort {
 
     public static void main(String[] args) {
+
         int[] arr = {9, 5, 2, 3, 7, 1, 6, 8, 4, 0};
 
         heapSort(arr);
+
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void heapSort(int[] arr) {
@@ -25,9 +28,6 @@ public class HeapSort {
 
             heapAdjust(arr, 0, i);
         }
-
-        System.out.println(Arrays.toString(arr));
-
     }
 
     public static void heapAdjust(int[] heap, int i, int n) {

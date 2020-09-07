@@ -3,9 +3,13 @@ package org.example.datastructure.sort;
 import java.util.Arrays;
 
 public class QuickSort {
+
     public static void main(String[] args) {
+
         int[] arr = {9, 5, 2, 3, 7, 1, 6, 8, 4, 0};
+
         quickSort(arr, 0, arr.length - 1);
+
         System.out.println(Arrays.toString(arr));
     }
 
