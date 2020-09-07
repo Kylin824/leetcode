@@ -3,15 +3,11 @@ package org.example.datastructure.sort;
 public class HeapSort {
     public static void main(String[] args) {
         int[] array = {8, 24, 31, 5, 7, 10, 88, 47, 16, 72, 50};
-
         HeapSort hs = new HeapSort();
-
         hs.heapSort(array);
-
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
-
     }
     
     public void heapSort(int[] array) {
@@ -33,17 +29,13 @@ public class HeapSort {
         // 默认[s...m]中的关键字除了s之外均满足大根堆的定义
         // 根节点
         int val = array[s];
-
         for (int j = 2 * s + 1; j < m; j = 2 * j + 1) {
-
             // 左右子节点大小比较 j指向大的子节点
             if (j + 1 < m && array[j] < array[j+1]) j++;
-
             // 根节点与大的节点比较
             if (val > array[j]) {
                 break;
             }
-
             // 根小则交换根
             else {
                 array[s] = array[j];
