@@ -24,7 +24,7 @@ public class BucketSort {
         }
 
         // 计算桶的数量
-        int bucketNum = (max - min) / arr.length + 1;
+        int bucketNum = (max - min) / arr.length + 1; // 划分桶数量
 
         ArrayList<ArrayList<Integer>> bucketArr = new ArrayList<>();
         for (int i = 0; i < bucketNum; i++) {
