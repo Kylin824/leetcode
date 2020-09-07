@@ -1,4 +1,4 @@
-package org.example.datastructure.sort;
+package org.example.datastructure.template;
 
 import java.util.Arrays;
 

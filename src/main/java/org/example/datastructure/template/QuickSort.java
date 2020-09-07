@@ -1,8 +1,9 @@
-package org.example.datastructure.sort;
+package org.example.datastructure.template;
 
 import java.util.Arrays;
 
 public class QuickSort {
+
     public static void main(String[] args) {
         int[] arr = {9, 5, 2, 3, 7, 1, 6, 8, 4, 0};
         quickSort(arr, 0, arr.length - 1);
@@ -27,7 +28,7 @@ public class QuickSort {
             arr[j] = arr[i];
         }
 
-        arr[i] = key;
+        arr[i] = key; //
         quickSort(arr, low, i - 1); // 递归调用
         quickSort(arr, i + 1, high);
     }
