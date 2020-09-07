@@ -11,9 +11,6 @@ public class ReplaceSpace {
             2. 依次判断每个字符 chatAt()，如果是空格则替换为 "%20"
      */
     public static String replaceSpace(StringBuffer str) {
-//        String res = str.toString().replace(" ", "%20");
-//        return res;
-
         StringBuffer res = new StringBuffer();
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == ' ')
@@ -22,6 +19,24 @@ public class ReplaceSpace {
                 res.append(str.charAt(i));
         }
         return res.toString();
+    }
+
+    public String replaceSpace1(String s) {
+        int length = s.length();
+        char[] array = new char[length * 3];
+        int size = 0;
+        for (int i = 0; i < length; i++) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                array[size++] = '%';
+                array[size++] = '2';
+                array[size++] = '0';
+            } else {
+                array[size++] = c;
+            }
+        }
+        String newStr = new String(array, 0, size);
+        return newStr;
     }
 
     public static void main(String[] args) {
