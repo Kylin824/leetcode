@@ -27,12 +27,12 @@ public class InsertSort {
             // 一直往前找到要插入的位置
             while (j >= 0 && tmp < array[j]) {
                 // 往后腾出位置
-                array[j+1] = array[j];
+                array[j + 1] = array[j];
                 j--;
             }
 
             // 此时j为要插入的位置
-            array[j+1] = tmp;
+            array[j + 1] = tmp;
         }
     }
 }

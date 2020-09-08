@@ -41,16 +41,16 @@ public class O_nn_Sort {
     }
 
     public static void insertSort(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j > 0; j--) {
-                if (arr[j] < arr[j - 1]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = tmp;
-                }
-                else
-                    break;
+        for (int i = 1; i < arr.length; i++) {
+
+            int tmp = arr[i]; // 暂存要插入的数据
+            int j = i - 1; // 从前一个数开始查找
+
+            while (j >= 0 && tmp < arr[j]) { // 边找边向后移动元素，腾出插入位置
+                arr[j + 1] = arr[j];  // 大于tmp的数后移
+                j--;
             }
+            arr[j + 1] = tmp; //
         }
     }
 }
