@@ -9,7 +9,7 @@ public class Massage {
 
     HouseRobber同问题
     */
-    public int rob(int[] nums) {
+    public int massage(int[] nums) {
         if (nums.length == 0)
             return 0;
         if (nums.length == 1)
