@@ -1,11 +1,8 @@
 package org.example.company.bigo;
 
-import scala.Int;
-
 import java.text.DecimalFormat;
 
 public class Main1 {
-
 
     public static String calLoad(String param) {
         String[] strs = param.split(" ");
@@ -51,4 +48,5 @@ public class Main1 {
         String input = "15 10 5,1,1000#2,3,3000#5,2,15000#10,4,16000";
         System.out.println(calLoad(input));
     }
+
 }
