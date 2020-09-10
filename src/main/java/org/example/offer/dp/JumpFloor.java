@@ -26,15 +26,16 @@ public class JumpFloor {
         f[0] = 0;
         f[1] = 1;
         f[2] = 2;
-        for (int i = 3; i <= n; i++) {
-            f[i] = f[i-1] + f[i-2];
+        f[3] = 4;
+        for (int i = 4; i <= n; i++) {
+            f[i] = f[i-1] + f[i-2] +f[i - 3];
         }
         return f[n];
     }
 
     public static void main(String[] args) {
         System.out.println(JumpFloor1(5));
-        System.out.println(JumpFloor2(5));
+        System.out.println(JumpFloor2(15));
     }
 
 }
