@@ -15,13 +15,10 @@ public class HeapSort {
     }
 
     public static void heapSort(int[] arr) {
-
         for (int i = arr.length / 2 - 1; i >= 0; i--) {
             heapAdjust(arr, i, arr.length);  // 建堆
         }
-
-        int tmp = 0;
-
+        int tmp;
         for (int i = arr.length - 1; i >= 0; i--) {
             tmp = arr[i];
             arr[i] = arr[0]; // 取走堆顶最大值
@@ -32,7 +29,7 @@ public class HeapSort {
     }
 
     public static void heapAdjust(int[] heap, int i, int n) {
-        int tmp = 0;
+        int tmp;
         for (int j = 2 * i + 1; j < n; j = 2 * j + 1) {
             if (j + 1 < n && heap[j] < heap[j + 1]) {
                 j++;
@@ -47,5 +44,4 @@ public class HeapSort {
                 break;
         }
     }
-
 }
