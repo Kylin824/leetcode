@@ -7,7 +7,6 @@ import java.text.DecimalFormat;
 public class Main1 {
 
 
-
     public static String calLoad(String param) {
         String[] strs = param.split(" ");
         int diskSize = Integer.parseInt(strs[0]);
@@ -22,8 +21,8 @@ public class Main1 {
             }
         }
         int max = 0;
-        int memper = 0;
-        int diskper = 0;
+        int memUsed = 0;
+        int diskUsed = 0;
         for (int i = 0; i < m.length; i++) {
             for (int j = i; j < m.length; j++) {
                 for (int k = 0; k < 3; k++) {
@@ -32,8 +31,8 @@ public class Main1 {
                     if (disk <= 15 && mem <= 10) {
                         if (max < m[i][2] + m[j][2]) {
                             max = m[i][2] + m[j][2];
-                            memper = mem;
-                            diskper = disk;
+                            memUsed = mem;
+                            diskUsed = disk;
                         }
 
                     }
@@ -41,7 +40,10 @@ public class Main1 {
             }
         }
         StringBuilder res = new StringBuilder();
-        res.append(max).append(",").append((diskper / diskSize) * 100).append("%,").append((memper / memSize) * 100).append("%");
+        DecimalFormat df = new DecimalFormat("0");//设置保留位数
+        String memper = df.format((float)memUsed / memSize * 100);
+        String diskper = df.format((float)diskUsed / diskSize * 100);
+        res.append(max).append(",").append(diskper).append("%,").append(memper).append("%");
         return res.toString();
     }
 
