@@ -28,13 +28,16 @@ public class Combinations {
         if (k == 0 || n < k)
             return res;
 
-        Deque<Integer> path  = new ArrayDeque<>();
-        dfs(n, k, 1, path, res);
+        Deque<Integer> path = new ArrayDeque<>(); // 为了方便移除末尾节点，使用双端队列Deque
+
+        dfs(n, k, 1, path, res); // 从1开始
+
         return res;
     }
 
     public void dfs(int n, int k, int begin, Deque<Integer> path, List<List<Integer>> res) {
-        if (path.size() == k) {
+
+        if (path.size() == k) {  // 递归终止条件：已经找够k个值
             res.add(new ArrayList<>(path));
             return;
         }
@@ -42,17 +45,17 @@ public class Combinations {
         // for (int i = begin; i <= n; i++) { // 无剪枝 21ms
         for (int i = begin; i <= n - (k - path.size()) + 1; i++) {  // 剪枝 2ms
             path.addLast(i);
-            System.out.println("递归之前 => " + path);
+//            System.out.println("递归之前 => " + path);
             dfs(n, k, i + 1, path, res);
             path.removeLast();
-            System.out.println("递归之后 => " + path);
+//            System.out.println("递归之后 => " + path);
         }
-
     }
 
     public static void main(String[] args) {
+
         Combinations c = new Combinations();
-        List<List<Integer>> res = c.combine(5, 3);
+        List<List<Integer>> res = c.combine(3, 3);
         System.out.println(res);
     }
 }

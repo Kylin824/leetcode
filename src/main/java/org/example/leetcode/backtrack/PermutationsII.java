@@ -1,36 +1,36 @@
 package org.example.leetcode.backtrack;
 
+import scala.Int;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Permutations {
+public class PermutationsII {
     /*
-    46. 全排列
-    给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+        47. 全排列 II
+        给定一个可包含重复数字的序列，返回所有不重复的全排列。
 
-    示例:
+        示例:
 
-    输入: [1,2,3]
-    输出:
+        输入: [1,1,2]
+        输出:
         [
-          [1,2,3],
-          [1,3,2],
-          [2,1,3],
-          [2,3,1],
-          [3,1,2],
-          [3,2,1]
+          [1,1,2],
+          [1,2,1],
+          [2,1,1]
         ]
 
-    */
+        全排列的基础上增加剪枝
 
-    public List<List<Integer>> permute(int[] nums) {
-        int len = nums.length;
+     */
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
+        int len = nums.length;
         if (len == 0)
             return res;
 
         boolean[] used = new boolean[len];
-
         List<Integer> path = new ArrayList<>();
 
         dfs(nums, len, 0, path, used, res);
@@ -45,23 +45,16 @@ public class Permutations {
         }
 
         for (int i = 0; i < len; i++) {
-            if (!used[i]) {
-                path.add(nums[i]);
-                used[i] = true;
-
-                dfs(nums, len, depth + 1, path, used, res);
-
-                used[i] = false;
-                path.remove(path.size() - 1);
+            if (!used[i] ) {
+                if (i > 0 && nums[i])
             }
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
-        Permutations solution = new Permutations();
-        List<List<Integer>> lists = solution.permute(nums);
+        int[] nums = {1, 1, 2};
+        PermutationsII solution = new PermutationsII();
+        List<List<Integer>> lists = solution.permuteUnique(nums);
         System.out.println(lists);
     }
-
 }
