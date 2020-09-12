@@ -3,6 +3,7 @@ package org.example.leetcode.backtrack;
 import scala.Int;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PermutationsII {
@@ -30,6 +31,8 @@ public class PermutationsII {
         if (len == 0)
             return res;
 
+        Arrays.sort(nums);
+
         boolean[] used = new boolean[len];
         List<Integer> path = new ArrayList<>();
 
@@ -45,14 +48,23 @@ public class PermutationsII {
         }
 
         for (int i = 0; i < len; i++) {
-            if (!used[i] ) {
-                if (i > 0 && nums[i])
+            if (used[i])
+                continue;
+             // i还没搜索过
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                continue; // 剪枝
             }
+            path.add(nums[i]);
+            used[i] = true;
+            dfs(nums, len, depth + 1, path, used, res);
+            used[i] = false;
+            path.remove(path.size() - 1);
+
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 1, 2};
+        int[] nums = {3, 3, 0, 3};
         PermutationsII solution = new PermutationsII();
         List<List<Integer>> lists = solution.permuteUnique(nums);
         System.out.println(lists);
