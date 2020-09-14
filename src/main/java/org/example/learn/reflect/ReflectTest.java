@@ -3,11 +3,6 @@ package org.example.learn.reflect;
 import java.lang.reflect.Method;
 
 public class ReflectTest {
-    public static void main(String[] args) {
-        test1();
-        test2();
-        test3();
-    }
 
     public static void test1() {
         long startTime = System.currentTimeMillis();
@@ -53,4 +48,11 @@ public class ReflectTest {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args) {
+        test1();
+        test2();
+        test3();
+    }
+
 }
