@@ -6,6 +6,7 @@ public class Student {
     private Integer age;
     private Integer score;
 
+    // 想调用clazz.newInstance()，必须保证编写类的时候有个无参构造。
     public Student() {
     }
 

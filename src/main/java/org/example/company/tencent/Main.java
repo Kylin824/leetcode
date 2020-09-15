@@ -1,12 +1,17 @@
 package org.example.company.tencent;
 
 public class Main {
+
+    static boolean foo(char c) {
+        System.out.print(c);
+        return true;
+    }
+
     public static void main(String[] args) {
-        int[][] arr = new int[5][];
-        int[] arr1 = {1, 2, 3, 4, 5};
-        arr[0] = arr1;
-        int[] arr2 = {1, 2, 3};
-        arr[1] = arr2;
-        System.out.println("test");
+        int i = 0;
+        for (foo('B'); foo('A')&&(i < 2); foo('C')) {
+            i++;
+            foo('D');
+        }
     }
 }

@@ -6,7 +6,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] arr = {9, 5, 2, 3, 7, 1, 6, 8, 4, 0};
-        quickSort(arr, 0, arr.length - 1);
+        quickSort1(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -15,7 +15,7 @@ public class QuickSort {
             return; // 递归终止条件
         int i = low;
         int j = high;
-        int tmp = arr[low]; // 第一个数作为基准值
+        int tmp = arr[i]; // 第一个数作为基准值
 
         while (i < j) {
             while (i < j && arr[j] >= tmp) { // 从右向左扫描找到第一个比基准值小的元素位置
@@ -31,5 +31,24 @@ public class QuickSort {
         arr[i] = tmp; //
         quickSort(arr, low, i - 1); // 递归调用
         quickSort(arr, i + 1, high);
+    }
+
+    public static void quickSort1(int[] arr, int low, int high) {
+        if (low >= high)
+            return;
+        int i = low, j = high, tmp = arr[low];
+        while (i < j) {
+            while (i < j && arr[j] >= tmp) {
+                j--;
+            }
+            arr[i] = arr[j];
+            while (i < j && arr[i] <= tmp) {
+                i++;
+            }
+            arr[j] = arr[i];
+        }
+        arr[i] = tmp;
+        quickSort1(arr, low, i - 1);
+        quickSort1(arr, i + 1, high);
     }
 }

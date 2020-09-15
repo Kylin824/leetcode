@@ -1,9 +1,8 @@
-package org.example.learn.classloader;
+package org.example.learn.reflect;
 
 
 import org.example.company.alibaba.Student;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 public class ClassLoaderDemo {
@@ -13,6 +12,7 @@ public class ClassLoaderDemo {
         ClassLoader loader = ClassLoaderDemo.class.getClassLoader();
         System.out.println(loader.toString());
         System.out.println(loader.getParent().toString());
+        System.out.println(loader.getParent().getParent());
 
         int[] array = {8, 10, 13, 16, 19, 20, 23, 26, 29, 33, 41};
 
@@ -35,7 +35,7 @@ public class ClassLoaderDemo {
 
         // get method
         Class studentClass = Class.forName("org.example.company.alibaba.Student");
-        Method methodBook = studentClass.getMethod("selfIntroduce", int.class);
+        Method methodBook = studentClass.getMethod("selfIntroduce", int.class); // 获取Method时，需要传入方法名+参数的Class类型
         Student student = (Student)studentClass.newInstance();
         String ret = (String) methodBook.invoke(student, 0);
         System.out.println(ret);
