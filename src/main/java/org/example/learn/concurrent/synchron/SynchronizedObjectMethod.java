@@ -5,6 +5,7 @@ package org.example.learn.concurrent.synchron;
  */
 
 public class SynchronizedObjectMethod implements Runnable{
+
     @Override
     public void run() {
         method();

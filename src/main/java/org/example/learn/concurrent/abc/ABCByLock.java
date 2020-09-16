@@ -1,11 +1,12 @@
-package org.example.learn.concurrent;
+package org.example.learn.concurrent.abc;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ABC {
-    private static Lock lock = new ReentrantLock();// 通过JDK5中的Lock锁来保证线程的访问的互斥
-    private static int state = 0;//通过state的值来确定是否打印
+public class ABCByLock {
+
+    private static Lock lock = new ReentrantLock(); // 通过Lock锁来保证线程的访问的互斥
+    private static int state = 0; // 通过state的值来确定是否打印
 
     static class ThreadA extends Thread {
         @Override
@@ -62,8 +63,8 @@ public class ABC {
     }
 
     public static void main(String[] args) {
+        new ThreadC().start();
         new ThreadA().start();
         new ThreadB().start();
-        new ThreadC().start();
     }
 }

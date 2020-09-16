@@ -1,10 +1,8 @@
-package org.example.learn.concurrent.thread;
+package org.example.learn.thread;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class ThreadPoolDemo {
 

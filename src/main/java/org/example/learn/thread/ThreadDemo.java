@@ -1,4 +1,4 @@
-package org.example.learn.concurrent.thread;
+package org.example.learn.thread;
 
 public class ThreadDemo {
     public static void main(String[] args) {

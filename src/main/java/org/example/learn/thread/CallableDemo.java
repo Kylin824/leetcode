@@ -1,4 +1,4 @@
-package org.example.learn.concurrent.thread;
+package org.example.learn.thread;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

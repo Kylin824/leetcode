@@ -1,4 +1,4 @@
-package org.example.learn.concurrent.thread;
+package org.example.learn.thread;
 
 import java.text.DecimalFormat;
 
