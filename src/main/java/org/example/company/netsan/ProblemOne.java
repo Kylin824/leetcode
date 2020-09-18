@@ -1,4 +1,4 @@
-package org.example.company.net;
+package org.example.company.netsan;
 
 import java.util.Scanner;
 
