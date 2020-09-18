@@ -62,16 +62,16 @@ public class ReversePrintList {
 
     public static void printListFromTailToHead3(ListNode head) {
         if (head.next != null) {
-            printListFromTailToHead3(head);
+            printListFromTailToHead3(head.next);
+            System.out.print(head.val + " ");
         }
         else {
             System.out.print(head.val + " ");
-            return;
         }
     }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(0);
+        ListNode head = new ListNode(1);
         ListNode tail = head;
         for (int i = 0; i < 5; i++) {
             ListNode node = new ListNode(i + 2);
@@ -100,13 +100,13 @@ public class ReversePrintList {
 //            ptr = ptr.next;
 //        }
 
-        head = null;
-        ArrayList<Integer> res = printListFromTailToHead2(head);
-        for (Integer i : res) {
-            System.out.print(i + " ");
-        }
+//        head = null;
+//        ArrayList<Integer> res = printListFromTailToHead2(head);
+//        for (Integer i : res) {
+//            System.out.print(i + " ");
+//        }
 
-        HashMap<Integer, Integer> map = new HashMap<>();
 
+        printListFromTailToHead3(head);
     }
 }
