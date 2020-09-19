@@ -2,27 +2,27 @@ package org.example.datastructure.tree;
 
 public class RecursiveTraverse {
 
-    public void PreOrderTraverse(TreeNode root) {
+    public void preOrderTraverse(TreeNode root) {
         if (root == null)
             return;
         System.out.print(root.val + " ");
-        PreOrderTraverse(root.left);
-        PreOrderTraverse(root.right);
+        preOrderTraverse(root.left);
+        preOrderTraverse(root.right);
     }
 
-    public void InOrderTraverse(TreeNode root) {
+    public void inOrderTraverse(TreeNode root) {
         if (root == null)
             return;
-        PreOrderTraverse(root.left);
+        inOrderTraverse(root.left);
         System.out.print(root.val + " ");
-        PreOrderTraverse(root.right);
+        inOrderTraverse(root.right);
     }
 
-    public void PostOrderTraverse(TreeNode root) {
+    public void postOrderTraverse(TreeNode root) {
         if (root == null)
             return;
-        PreOrderTraverse(root.left);
-        PreOrderTraverse(root.right);
+        postOrderTraverse(root.left);
+        postOrderTraverse(root.right);
         System.out.print(root.val + " ");
     }
 }

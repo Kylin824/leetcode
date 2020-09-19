@@ -7,8 +7,8 @@ public class O_nn_Sort {
     public static void main(String[] args) {
         int[] arr = {9, 25, 42, 33, 27, 51, 46, 38, 24, 10, 11, 13, 15, 21};
 
-//        bubbleSort(arr);
-        insertSort(arr);
+        bubbleSort1(arr);
+//        insertSort(arr);
 
         System.out.println(Arrays.toString(arr));
     }
@@ -21,6 +21,14 @@ public class O_nn_Sort {
                     arr[j] = arr[j - 1];
                     arr[j - 1] = tmp;
                 }
+            }
+        }
+    }
+
+    public static void bubbleSort1(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = arr.length - 1; j > i; j--) {
+
             }
         }
     }

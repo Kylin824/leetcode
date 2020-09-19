@@ -1,9 +1,12 @@
 package org.example.offer.list;
 
+import org.apache.spark.sql.sources.In;
 import org.example.offer.ListNode;
+import scala.Int;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.ListIterator;
 
 public class ReversePrintList {
@@ -57,9 +60,18 @@ public class ReversePrintList {
         return res;
     }
 
+    public static void printListFromTailToHead3(ListNode head) {
+        if (head.next != null) {
+            printListFromTailToHead3(head.next);
+            System.out.print(head.val + " ");
+        }
+        else {
+            System.out.print(head.val + " ");
+        }
+    }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(0);
+        ListNode head = new ListNode(1);
         ListNode tail = head;
         for (int i = 0; i < 5; i++) {
             ListNode node = new ListNode(i + 2);
@@ -88,10 +100,13 @@ public class ReversePrintList {
 //            ptr = ptr.next;
 //        }
 
-        head = null;
-        ArrayList<Integer> res = printListFromTailToHead2(head);
-        for (Integer i : res) {
-            System.out.print(i + " ");
-        }
+//        head = null;
+//        ArrayList<Integer> res = printListFromTailToHead2(head);
+//        for (Integer i : res) {
+//            System.out.print(i + " ");
+//        }
+
+
+        printListFromTailToHead3(head);
     }
 }
