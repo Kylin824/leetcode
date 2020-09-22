@@ -15,7 +15,7 @@ public class UnRecursiveTraverse {
             TreeNode cur = stack.pop();
             System.out.print(cur.val + " ");
             if (cur.right != null)
-                stack.push(cur.right);
+                stack.push(cur.right); // 右节点先入栈，位于 下面
             if (cur.left != null)
                 stack.push(cur.left);
         }
@@ -31,12 +31,13 @@ public class UnRecursiveTraverse {
             TreeNode cur = queue.poll();
             // 记录每层的节点数量
             int levelSum = queue.size();
-            while (levelSum-- > 0) {
+            while (levelSum > 0) {
                 System.out.print(cur.val + " ");
                 if (cur.left != null)
                     queue.offer(cur.left);
                 if (cur.right != null)
                     queue.offer(cur.right);
+                levelSum--;
             }
         }
     }
