@@ -25,10 +25,15 @@ public class O_nn_Sort {
         }
     }
 
+    // 从后往前遍历 小的往前面冒泡
     public static void bubbleSort1(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = arr.length - 1; j > i; j--) {
-
+                if (arr[j] < arr[j - 1]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = tmp;
+                }
             }
         }
     }
@@ -39,6 +44,22 @@ public class O_nn_Sort {
             for (int j = i + 1; j < arr.length; j++) { // 从前往后遍历找最小值
                 if (arr[j] < arr[minIndex])
                     minIndex = j;
+            }
+            if (minIndex != i) {
+                int tmp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = tmp;
+            }
+        }
+    }
+
+    public static void selectSort1(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
             }
             if (minIndex != i) {
                 int tmp = arr[i];
