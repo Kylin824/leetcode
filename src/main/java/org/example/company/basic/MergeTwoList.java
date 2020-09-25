@@ -4,7 +4,7 @@ import org.example.leetcode.ListNode;
 
 public class MergeTwoList {
 
-    public ListNode mergeTwoLists (ListNode l1, ListNode l2) {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null)
             return l2;
         if (l2 == null)
