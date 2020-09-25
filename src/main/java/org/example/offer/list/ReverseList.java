@@ -11,19 +11,16 @@ public class ReverseList {
         思路: 同 NO.03，三个指针，修改每个节点的pre和next
      */
     public static ListNode ReverseList(ListNode head) {
+
+        if (head == null || head.next == null)
+            return head;
         ListNode cur = head;
-        if (cur == null)
-            return null;
-
         ListNode pre = null;
-        ListNode next = null;
-
+        ListNode next;
         while (cur != null) {
             next = cur.next;
-
             cur.next = pre;
             pre = cur;
-
             cur = next;
         }
         return pre;
