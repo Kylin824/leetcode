@@ -11,7 +11,7 @@ public class ABCBySynchronized {
         public void run() {
             for (int i = 0; i < 10;) {
                 synchronized (lock) {
-                    while (state % 3 == 0) {
+                    while (state % 4 == 0) {
                         System.out.print("A");
                         state++;
                         i++;
@@ -27,7 +27,7 @@ public class ABCBySynchronized {
         public void run() {
             for (int i = 0; i < 10;) {
                 synchronized (lock) {
-                    while (state % 3 == 1) {
+                    while (state % 4 == 1) {
                         System.out.print("B");
                         state++;
                         i++;
@@ -43,7 +43,7 @@ public class ABCBySynchronized {
         public void run() {
             for (int i = 0; i < 10;) {
                 synchronized (lock) {
-                    while (state % 3 == 2) {
+                    while (state % 4 == 2) {
                         System.out.print("C");
                         state++;
                         i++;
@@ -57,6 +57,17 @@ public class ABCBySynchronized {
         new Thread(new A()).start();
         new Thread(new C()).start();
         new Thread(new B()).start();
+        new Thread(()-> {
+            for (int i = 0; i < 10;) {
+                synchronized (lock) {
+                    while (state % 4 == 3) {
+                        System.out.print("D");
+                        state++;
+                        i++;
+                    }
+                }
+            }
+        }).start();
     }
 
 }
