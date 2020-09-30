@@ -23,12 +23,14 @@ public class PathSumInTree {
             return res;
 
         path.add(root.val);
+
         target = target - root.val;
 
         if (target == 0 && root.left == null && root.right == null) {
             res.add(new ArrayList<>(path));
         }
 
+        // 否则继续往左往右找
         if (root.left != null)
             FindPath(root.left, target);
         if (root.right != null)
