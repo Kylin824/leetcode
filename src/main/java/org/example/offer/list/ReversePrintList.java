@@ -1,12 +1,8 @@
 package org.example.offer.list;
 
-import org.apache.spark.sql.sources.In;
 import org.example.offer.ListNode;
-import scala.Int;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.ListIterator;
 
 public class ReversePrintList {
@@ -16,8 +12,7 @@ public class ReversePrintList {
      */
     /*
         思路:
-            1. 第一个列表保存，倒序输出到第二个列表后返回
-            2. 调整链表指针位置
+            1. 遍历一次存入栈，再出栈打印
 
         tips: ListIterator;
      */
@@ -84,28 +79,6 @@ public class ReversePrintList {
             ptr = ptr.next;
         }
         System.out.println();
-
-//        ListNode listNode = head;
-//        ListNode pre = null;
-//        ListNode next;
-//        while (listNode != null) {
-//            next = listNode.next;
-//            listNode.next = pre;
-//            pre = listNode;
-//            listNode = next;
-//        }
-//        ptr = pre;
-//        while (ptr != null) {
-//            System.out.print(ptr.val + " ");
-//            ptr = ptr.next;
-//        }
-
-//        head = null;
-//        ArrayList<Integer> res = printListFromTailToHead2(head);
-//        for (Integer i : res) {
-//            System.out.print(i + " ");
-//        }
-
 
         printListFromTailToHead3(head);
     }

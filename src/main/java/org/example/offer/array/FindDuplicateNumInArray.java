@@ -8,11 +8,7 @@ public class FindDuplicateNumInArray {
      */
     /*
         思路:
-            1. 哈希(这里数字有范围(0-n-1，可以直接用数组代替hash)+遍历
-
-            2. 排序+遍历
-
-            3. in-place方法，利用数字0-n-1范围的特性，将数字i交换到对应的number[i]上,
+            in-place方法，利用数字0-n-1范围的特性，将数字i交换到对应的number[i]上,
             如果此时number[i]已经是i，则发现重复
      */
     public boolean duplicate(int numbers[], int length, int [] duplication) {
