@@ -1,6 +1,4 @@
-package org.example.leetcode.backtrack;
-
-import scala.Int;
+package org.example.leetcode.dfs;
 
 import java.util.ArrayList;
 import java.util.Arrays;

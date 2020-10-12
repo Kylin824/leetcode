@@ -1,4 +1,4 @@
-package org.example.leetcode.backtrack;
+package org.example.leetcode.dfs;
 
 import java.util.*;
 
