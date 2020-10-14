@@ -12,6 +12,9 @@ public class _15ThreeSum {
     使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
 
     注意：答案中不可以包含重复的三元组。
+
+    思路：
+        排序 + 循环 + 双指针
      */
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
