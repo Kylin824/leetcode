@@ -6,7 +6,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] arr = {9, 5, 2, 3, 7, 1, 6, 8, 4, 0};
-        quickSort3(arr, 0, arr.length - 1);
+        quickSort4(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -88,5 +88,24 @@ public class QuickSort {
         arr[i] = tmp;
         quickSort3(arr, low, i - 1);
         quickSort3(arr, i + 1, high);
+    }
+
+    public static void quickSort4(int[] arr, int low, int high) {
+        if (low >= high)
+            return;
+        int i = low, j = high, tmp = arr[low];
+        while (i < j) {
+            while (i < j && arr[j] > tmp) {
+                j--;
+            }
+            arr[i] = arr[j];
+            while (i < j && arr[i] < tmp) {
+                i++;
+            }
+            arr[j] = arr[i];
+        }
+        arr[i] = tmp;
+        quickSort4(arr, low, i - 1);
+        quickSort4(arr, i + 1, high);
     }
 }
