@@ -5,6 +5,9 @@ import org.example.leetcode.TreeNode;
 public class IsBalance {
     /*
     110. 平衡二叉树
+
+    思路:
+        左子树与右子树的高度差小于等于1，且左子树、右子树也为平衡二叉树
      */
     public boolean isBalanced(TreeNode root) {
         if (root == null)

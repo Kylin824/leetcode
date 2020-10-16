@@ -9,6 +9,9 @@ public class AllPath {
     /*
     257. 二叉树的所有路径
     给定一个二叉树，返回所有从根节点到叶子节点的路径。
+
+    思路:
+        dfs + 回溯
      */
     private static ArrayList<String> res = new ArrayList<>();
     private static ArrayList<Integer> path = new ArrayList<>();

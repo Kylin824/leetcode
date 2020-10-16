@@ -7,12 +7,14 @@ public class LowestCommonAncestor {
         NO.68 二叉树的公共祖先
      */
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null || root == p || root == q) {
+        if (root == null)
+            return null;
+        if (root == p || root == q) {
             return root;
         }
         TreeNode left = lowestCommonAncestor(root.left, p, q); // 后序
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        if (left == null && right == null)
+        if (left == null && right == null) // 都为空说明树中没有该节点
             return null;
         if (left == null)
             return right;
@@ -39,10 +41,10 @@ public class LowestCommonAncestor {
         root.left.right = new TreeNode(2);
         root.left.right.left = new TreeNode(4);
         root.left.right.right = new TreeNode(7);
-        TreeNode q = root.left.right.right; // 7
         root.right = new TreeNode(6);
         root.right.left = new TreeNode(1);
         root.right.right = new TreeNode(0);
+        TreeNode q = root.right.right; // 0
 
         TreeNode commonAncestor = lowestCommonAncestor(root, p, q);
         System.out.println(commonAncestor.val);

@@ -4,7 +4,7 @@ import org.example.leetcode.TreeNode;
 
 public class HashPathNum {
     /*
-    112. 路径总和
+    112. 判断路径总和是否存在
      */
     public static boolean hasPathSum(TreeNode root, int sum) {
         if (root == null) {

@@ -19,13 +19,13 @@ public class SortedArrayToBST {
         if (nums.length == 1) {
             return new TreeNode(nums[0]);
         }
-        int cur = nums.length / 2;
-        TreeNode root = new TreeNode(nums[cur]);
-        if (cur > 0) {
-            root.left = buildBST(Arrays.copyOfRange(nums, 0, cur));
+        int mid = nums.length / 2; // 取中位数作为根节点
+        TreeNode root = new TreeNode(nums[mid]);
+        if (mid > 0) {
+            root.left = buildBST(Arrays.copyOfRange(nums, 0, mid)); // 左闭右开
         }
-        if (cur + 1 < nums.length) {
-            root.right = buildBST(Arrays.copyOfRange(nums, cur + 1, nums.length));
+        if (mid + 1 < nums.length) {
+            root.right = buildBST(Arrays.copyOfRange(nums, mid + 1, nums.length));
         }
         return root;
     }

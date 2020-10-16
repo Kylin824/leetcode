@@ -4,20 +4,20 @@ import org.example.leetcode.TreeNode;
 
 public class SymmetricTree {
     /*
-    101. 对称二叉树
-     */
+    101. 判断对称二叉树
+    */
 
-    public boolean qs(TreeNode root) {
-        return isSame(root, root);
+    public boolean isSymmetric(TreeNode root) {
+        return check(root, root);
     }
 
-    public boolean isSame(TreeNode r1, TreeNode r2) {
+    public boolean check(TreeNode r1, TreeNode r2) {
         if (r1 == null && r2 == null) {
             return true;
         }
-        if (r1 == null || r2 == null) {
+        if (r1 == null || r2 == null || r1.val != r2.val) {
             return false;
         }
-        return r1.val == r2.val && isSame(r1.left, r2.right) && isSame(r1.right, r2.left);
+        return check(r1.left, r2.right) && check(r1.right, r2.left);
     }
 }
