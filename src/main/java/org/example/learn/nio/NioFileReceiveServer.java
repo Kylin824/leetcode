@@ -8,6 +8,7 @@ import java.net.ServerSocket;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
 
 public class NioFileReceiveServer {
     public static Logger log = Logger.getLogger("NioFileReceiveServer");
-    private Charset charset = Charset.forName("UTF-8");
+    private final Charset charset = StandardCharsets.UTF_8;
     Map<SelectableChannel, Client> clientMap = new HashMap<>();
 
     public void startServer() throws Exception {

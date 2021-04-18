@@ -1,7 +1,5 @@
 package org.example.company.hm;
 
-import scala.Int;
-
 import java.util.*;
 
 public class Main3 {

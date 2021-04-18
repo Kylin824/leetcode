@@ -1,4 +1,4 @@
-package org.example.learn.nio;
+package org.example.learn.netty;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -7,6 +7,8 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.logging.Logger;
 
+
+// 负责socket的数据输入、业务处理、结果输出
 public class EchoHandler implements Runnable{
     private static Logger log = Logger.getLogger("EchoHandler");
     final SocketChannel socketChannel;

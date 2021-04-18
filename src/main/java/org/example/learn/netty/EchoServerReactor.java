@@ -1,4 +1,4 @@
-package org.example.learn.nio;
+package org.example.learn.netty;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -29,9 +29,9 @@ public class EchoServerReactor implements Runnable {
             while (!Thread.interrupted()) {
                 selector.select();
                 Set<SelectionKey> selectionKeySet = selector.selectedKeys();
-                Iterator<SelectionKey> keyIterator = selectionKeySet.iterator();
-                while (keyIterator.hasNext()) {
-                    SelectionKey sk = keyIterator.next();
+                Iterator it = selectionKeySet.iterator();
+                while (it.hasNext()) {
+                    SelectionKey sk = (SelectionKey) it.next();
                     dispatch(sk);
                 }
                 selectionKeySet.clear();
@@ -53,13 +53,17 @@ public class EchoServerReactor implements Runnable {
         @Override
         public void run() {
             try {
-                SocketChannel socketChannel = serverSocketChannel.accept();
+                SocketChannel socketChannel = serverSocketChannel.accept(); // 接受新连接
                 if (socketChannel != null) {
-                    new EchoHandler(selector, socketChannel);
+                    new EchoHandler(selector, socketChannel); // 为新连接创建一个输入输出的Handler处理器
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void main(String[] args) throws IOException{
+        new Thread(new EchoServerReactor()).start();
     }
 }
