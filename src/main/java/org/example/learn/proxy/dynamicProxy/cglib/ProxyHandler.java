@@ -1,4 +1,4 @@
-package org.example.learn.proxy.cglib;
+package org.example.learn.proxy.dynamicProxy.cglib;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
@@ -6,7 +6,7 @@ import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
-public class CglibHandler implements MethodInterceptor {
+public class ProxyHandler implements MethodInterceptor {
 
     public Object getProxy(Class clazz) {
         Enhancer enhancer = new Enhancer();
@@ -22,5 +22,12 @@ public class CglibHandler implements MethodInterceptor {
         Object result = methodProxy.invokeSuper(o, objects);
         System.out.println("cglib 调用之后，清理数据");
         return result;
+    }
+
+    public static void main(String[] args) {
+        User user = new User();
+        ProxyHandler handler = new ProxyHandler();
+        User proxy = (User)handler.getProxy(user.getClass());
+        proxy.add();
     }
 }

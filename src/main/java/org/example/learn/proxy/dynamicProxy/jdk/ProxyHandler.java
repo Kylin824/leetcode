@@ -1,14 +1,14 @@
-package org.example.learn.proxy.jdk;
+package org.example.learn.proxy.dynamicProxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class InvocationHandlerImpl implements InvocationHandler {
+public class ProxyHandler implements InvocationHandler {
 
     private Object target; // 被代理的真实对象
 
-    public InvocationHandlerImpl(Object target) {
+    public ProxyHandler(Object target) {
         this.target = target;
     }
 
@@ -20,7 +20,10 @@ public class InvocationHandlerImpl implements InvocationHandler {
         return result;
     }
 
-    public Object getProxy() {
-        return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
+    public static void main(String[] args) {
+        User target = new User();
+        ProxyHandler proxyHandler = new ProxyHandler(target);
+        UserInterface userProxy = (UserInterface) Proxy.newProxyInstance(User.class.getClassLoader(), User.class.getInterfaces(), proxyHandler);
+        userProxy.add();
     }
 }

@@ -1,6 +1,6 @@
-package org.example.learn.proxy.static_proxy;
+package org.example.learn.proxy.staticProxy;
 
-public class UserDaoImpl implements UserDao{
+public class User implements UserInterface {
     @Override
     public void add() {
         System.out.println("add an user!");

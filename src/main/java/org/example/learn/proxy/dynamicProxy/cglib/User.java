@@ -1,4 +1,4 @@
-package org.example.learn.proxy.cglib;
+package org.example.learn.proxy.dynamicProxy.cglib;
 
 public class User {
     public void add() {
