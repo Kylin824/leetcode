@@ -8,13 +8,6 @@ import java.lang.reflect.Method;
 
 public class ProxyHandler implements MethodInterceptor {
 
-    public Object getProxy(Class clazz) {
-        Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(clazz);
-        enhancer.setCallback(this);
-        return enhancer.create();
-    }
-
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("cglib 调用之前，打印日志");
@@ -25,9 +18,11 @@ public class ProxyHandler implements MethodInterceptor {
     }
 
     public static void main(String[] args) {
-        User user = new User();
-        ProxyHandler handler = new ProxyHandler();
-        User proxy = (User)handler.getProxy(user.getClass());
-        proxy.add();
+
+        Enhancer enhancer = new Enhancer();
+        enhancer.setCallback(new ProxyHandler());
+        enhancer.setSuperclass(User.class);
+        User userProxy = (User)enhancer.create();
+        userProxy.add();
     }
 }
