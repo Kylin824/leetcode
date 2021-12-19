@@ -20,9 +20,9 @@ public class FutureDemo {
 //        double price = f.getPrice("p1");
 //        System.out.println("do something else: " + dateTimeFormatter.format(LocalDateTime.now()));
 //        System.out.println("price: " + price);
-        System.out.println();
+//        System.out.println();
 
-//        //异步调用
+//        //异步调用——线程启动法
 //        FutureTask<Double> futureTask = new FutureTask<>(new Callable<Double>() {
 //            @Override
 //            public Double call() throws Exception {
@@ -33,6 +33,8 @@ public class FutureDemo {
 //        new Thread(futureTask).start();
 //        System.out.println("do something else: " + dateTimeFormatter.format(LocalDateTime.now()));
 //        try {
+//            System.out.println("begin get price: " + dateTimeFormatter.format(LocalDateTime.now()));
+//            // 阻塞等待
 //            System.out.println("price: " + futureTask.get());
 //            System.out.println("end time: " + dateTimeFormatter.format(LocalDateTime.now()));
 //        } catch (InterruptedException e) {
@@ -42,17 +44,29 @@ public class FutureDemo {
 //        }
 
 
+//        // 异步调用——线程池法
 //        ExecutorService executorService = Executors.newCachedThreadPool();
+//        System.out.println("begin time: " + dateTimeFormatter.format(LocalDateTime.now()));
 //        Future<Double> future = executorService.submit(new Callable<Double>() {
 //            @Override
 //            public Double call() throws Exception {
-//                return
+//                return f.calculatePrice("p3");
 //            }
-//        })
+//        });
+//        try {
+//            System.out.println("begin get price: " + dateTimeFormatter.format(LocalDateTime.now()));
+//            System.out.println("price: " + future.get());
+//            System.out.println("end time: " + dateTimeFormatter.format(LocalDateTime.now()));
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+
 
         // CompleteFuture调用
         System.out.println("begin time: " + dateTimeFormatter.format(LocalDateTime.now()));
-        CompletableFuture<Double> futurePrice = f.getPriceAsyn("p3");
+        CompletableFuture<Double> futurePrice = f.getPriceAsync("p3");
         System.out.println("do something else: " + dateTimeFormatter.format(LocalDateTime.now()));
         try {
             System.out.println("price: " + futurePrice.get());
@@ -64,19 +78,11 @@ public class FutureDemo {
         }
     }
 
-    public static void delay() {
-        try {
-            Thread.sleep(3000L);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public double getPrice(String product) {
         return calculatePrice(product);
     }
 
-    public CompletableFuture<Double> getPriceAsyn(String product) {
+    public CompletableFuture<Double> getPriceAsync(String product) {
         CompletableFuture<Double> futurePrice = new CompletableFuture<>();
         // 启动一个线程去执行计算任务
         new Thread(() -> {
@@ -98,7 +104,11 @@ public class FutureDemo {
 
 
     private double calculatePrice(String product) {
-        delay();
+        try {
+            Thread.sleep(3000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return random.nextDouble() * product.charAt(0) + product.charAt(1);
     }
 }
