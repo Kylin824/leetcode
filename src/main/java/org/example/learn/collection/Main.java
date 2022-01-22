@@ -20,15 +20,7 @@ public class Main {
 
         Field size = mapType.getDeclaredField("size");
         size.setAccessible(true);
+
         System.out.println("size : " + size.get(map));
-
-        List<Integer> list = Arrays.asList(1, 2, 3, 4);
-        list.forEach(System.out::println);
-
-        System.out.println(Season.SPRING);
-    }
-
-    private static enum Season {
-        SPRING, SUMMER, AUTUMN, WINTER;
     }
 }
