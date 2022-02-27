@@ -2,7 +2,7 @@ package org.example.learn.concurrent.abc;
 
 public class ABCBySynchronized {
 
-    private static Object lock = new Object();
+    private static final Object lock = new Object();
     private static int state = 0;
 
     static class A implements Runnable {

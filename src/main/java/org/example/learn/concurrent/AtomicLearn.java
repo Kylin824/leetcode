@@ -1,23 +1,42 @@
 package org.example.learn.concurrent;
+import lombok.SneakyThrows;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicLearn {
 
-    private static AtomicInteger count = new AtomicInteger(0);
+    private static final AtomicInteger count = new AtomicInteger(0);
 
     public void increase() {
         count.incrementAndGet();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-    }
-}
+        new Thread(new Runnable() {
+            @SneakyThrows
+            @Override
+            public void run() {
+                for (int i = 0; i < 10000; i++) {
 
-class ThreadA extends Thread {
-    public void run() {
-        for (int i = 0; i < 5;) {
-        }
+                }
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @SneakyThrows
+            @Override
+            public void run() {
+                for (int i = 0; i < 10000; i++) {
+                    Thread.sleep(1);
+                    count.getAndIncrement();
+                }
+            }
+        }).start();
+
+        System.out.println(count);
+        Thread.sleep(5000);
+        System.out.println(count);
     }
 }
 

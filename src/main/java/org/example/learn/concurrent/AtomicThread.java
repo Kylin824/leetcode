@@ -26,13 +26,11 @@ public class AtomicThread {
         final AtomicThread test = new AtomicThread();
 
         for (int i = 0; i < 10; i++) {
-            new Thread() {
-                public void run() {
-                    for (int j = 0; j < 1000; j++) {
-                        test.increace();
-                    }
+            new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    test.increace();
                 }
-            }.start();
+            }).start();
         }
 
         while (Thread.activeCount()>2) { //保证前面的线程都执行完

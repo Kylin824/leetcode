@@ -6,7 +6,7 @@ public class ReflectTest {
 
     public static void test1() {
         long startTime = System.currentTimeMillis();
-        String string = new String();
+        String string = "";
         for (long i = 0; i < 1000000000L; i++) {
             string.trim();
         }
@@ -17,7 +17,7 @@ public class ReflectTest {
     public static void test2() {
         try {
             long startTime = System.currentTimeMillis();
-            Class clazz = String.class;
+            Class<?> clazz = String.class;
             String string = (String) clazz.newInstance();
             Method method = clazz.getMethod("trim", null);
             for (int i = 0; i < 1000000000L; i++) {
@@ -34,7 +34,7 @@ public class ReflectTest {
     public static void test3() {
         try {
             long startTime = System.currentTimeMillis();
-            Class clazz = String.class;
+            Class<?> clazz = String.class;
             String string = (String) clazz.newInstance();
             Method method = clazz.getMethod("trim", null);
             method.setAccessible(true);

@@ -1,5 +1,9 @@
 package org.example.company.alibaba;
 
+
+import lombok.Data;
+
+@Data
 public class Student {
     private String name;
     private String gender;
@@ -15,6 +19,12 @@ public class Student {
         this.gender = gender;
         this.age = age;
         this.score = score;
+    }
+
+    public Student(String name, String gender, Integer age) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
     }
 
     public String getName() {

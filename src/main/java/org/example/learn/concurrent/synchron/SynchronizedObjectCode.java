@@ -5,7 +5,7 @@ package org.example.learn.concurrent.synchron;
  */
 public class SynchronizedObjectCode implements Runnable {
 
-    Object lock = new Object();
+    final Object lock = new Object();
 
     @Override
     public void run() {
@@ -14,7 +14,7 @@ public class SynchronizedObjectCode implements Runnable {
 
     public void method() {
         synchronized (lock) {
-            System.out.println("this is " + Thread.currentThread().getName() + " runnig");
+            System.out.println("this is " + Thread.currentThread().getName() + " running");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
