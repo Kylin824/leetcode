@@ -1,10 +1,6 @@
 package org.example.hot100;
 
-import org.apache.hc.core5.http2.impl.nio.ProtocolNegotiationException;
-import org.codehaus.janino.Java;
 import org.example.leetcode.ListNode;
-
-import java.awt.*;
 
 public class _2 {
 
