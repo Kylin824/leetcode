@@ -14,7 +14,9 @@ public class _11 {
         System.out.println(maxArea(nums));
     }
 
-    // 双指针
+    /**
+     * 双指针
+     */
     public static int maxArea(int[] height) {
 
         int max = 0;
