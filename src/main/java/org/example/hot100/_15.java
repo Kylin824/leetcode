@@ -1,4 +1,4 @@
-package org.example.leetcode.hot100;
+package org.example.hot100;
 
 import java.util.ArrayList;
 import java.util.Arrays;
