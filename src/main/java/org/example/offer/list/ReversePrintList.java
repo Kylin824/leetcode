@@ -1,6 +1,6 @@
 package org.example.offer.list;
 
-import org.example.offer.ListNode;
+import org.example.ListNode;
 
 import java.util.ArrayList;
 import java.util.ListIterator;

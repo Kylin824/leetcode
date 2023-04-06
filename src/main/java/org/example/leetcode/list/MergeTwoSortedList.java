@@ -1,9 +1,6 @@
 package org.example.leetcode.list;
 
-import lombok.val;
-import org.example.leetcode.ListNode;
-
-import java.util.List;
+import org.example.ListNode;
 
 public class MergeTwoSortedList {
     /*

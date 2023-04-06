@@ -1,6 +1,6 @@
 package org.example.leetcode.tree;
 
-import org.example.leetcode.TreeNode;
+import org.example.TreeNode;
 
 public class SymmetricTree {
     /*

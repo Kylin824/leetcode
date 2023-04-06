@@ -1,8 +1,6 @@
 package org.example.leetcode.list;
 
-import org.example.leetcode.ListNode;
-
-import java.util.jar.JarEntry;
+import org.example.ListNode;
 
 public class IntersectionOfTwoLists {
     /*

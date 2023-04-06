@@ -1,6 +1,6 @@
 package org.example.leetcode.tree;
 
-import org.example.offer.TreeNode;
+import org.example.TreeNode;
 
 public class DepthOfTree {
     /*

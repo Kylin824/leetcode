@@ -1,6 +1,6 @@
 package org.example.interview.list;
 
-import org.example.leetcode.ListNode;
+import org.example.ListNode;
 
 public class SplitList {
     /*

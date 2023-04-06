@@ -1,6 +1,6 @@
 package org.example.hot100.tree;
 
-import org.example.leetcode.TreeNode;
+import org.example.TreeNode;
 
 public class _104 {
 
@@ -20,36 +20,26 @@ public class _104 {
     }
 
     public static int maxDepth(TreeNode root) {
-
-
-        int maxDepth = 0;
-
         if (root == null) {
-            return maxDepth;
+            return 0;
         }
-
-        int leftDepth = dfs(maxDepth, root.left);
-
-        int rightDepth = dfs(maxDepth, root.right);
-
-        return Math.max(leftDepth, rightDepth) + 1;
-
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
-    public static int dfs(int maxDepth, TreeNode node) {
-        if (node == null) {
-            return maxDepth;
-        }
-        // 叶子节点
-        if (node.left == null && node.right == null) {
-            return maxDepth + 1;
-        }
-        if (node.left != null && node.right != null) {
-            return Math.max(dfs(maxDepth, node.left), dfs(maxDepth, node.right)) + 1;
-        }
-        if (node.left == null) {
-            return Math.max(maxDepth, dfs(maxDepth, node.right)) + 1;
-        }
-        return Math.max(maxDepth, dfs(maxDepth, node.left)) + 1;
-    }
+//    public static int dfs(int maxDepth, TreeNode node) {
+//        if (node == null) {
+//            return 0;
+//        }
+//        // 叶子节点
+//        if (node.left == null && node.right == null) {
+//            return maxDepth + 1;
+//        }
+//        if (node.left != null && node.right != null) {
+//            return Math.max(dfs(maxDepth, node.left), dfs(maxDepth, node.right)) + 1;
+//        }
+//        if (node.left == null) {
+//            return Math.max(maxDepth, dfs(maxDepth, node.right)) + 1;
+//        }
+//        return Math.max(maxDepth, dfs(maxDepth, node.left)) + 1;
+//    }
 }

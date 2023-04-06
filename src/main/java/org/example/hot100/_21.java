@@ -1,6 +1,6 @@
 package org.example.hot100;
 
-import org.example.leetcode.ListNode;
+import org.example.ListNode;
 
 public class _21 {
 

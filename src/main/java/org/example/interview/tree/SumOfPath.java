@@ -1,7 +1,5 @@
 package org.example.interview.tree;
 
-import org.example.leetcode.TreeNode;
-
 public class SumOfPath {
     /*
     面试题 04.12. 求和路径

@@ -1,6 +1,6 @@
 package org.example.offer.tree;
 
-import org.example.offer.TreeNode;
+import org.example.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,30 +1,11 @@
 package org.example.leetcode.solved;
 
+import org.example.ListNode;
+import org.example.TreeNode;
+
 import java.util.*;
 
 public class Solution {
-
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode next;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
-
 
 
     public static void main(String[] args) {
@@ -195,44 +176,6 @@ public class Solution {
                 max_profit += prices[i] - prices[i - 1];
         }
         return max_profit;
-    }
-
-    // 填充每个节点的下一个右侧节点指针（层序遍历版）
-    public void connect(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        TreeNode node = root;
-        TreeNode next_node = root;
-        queue.add(node);
-        while (!queue.isEmpty()) {
-            // 记录每层的节点数量
-            int levelSum = queue.size();
-            for (int i = 0; i < levelSum; i++) {
-                node = queue.remove();
-                next_node = queue.peek();
-                if (i == levelSum - 1)
-                    node.next = null;
-                else
-                    node.next = next_node;
-                if (node.left != null) queue.add(node.left);
-                if (node.right != null) queue.add(node.right);
-            }
-        }
-    }
-
-    // 填充每个节点的下一个右侧节点指针（递归版）
-    public void connect_iter(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        if(root.left != null)
-            root.left.next = root.right;
-        if(root.right != null)
-            root.right.next = root.next != null ? root.next.left : null;
-        connect_iter(root.left);
-        connect_iter(root.right);
     }
 
     // 递归获取树最大深度
