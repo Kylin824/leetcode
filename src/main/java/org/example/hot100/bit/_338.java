@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.bit;
 
 import java.util.Arrays;
 
@@ -21,10 +21,8 @@ public class _338 {
         for (int i = 0; i <= n; i++) {
             int count = 0;
             int b = i;
-            while (b > 0) {
-                if ((b & 1) == 1) {
-                    count++;
-                }
+            while (b != 0) {
+                count += b & 1;
                 b = b >> 1;
             }
             res[i] = count;
