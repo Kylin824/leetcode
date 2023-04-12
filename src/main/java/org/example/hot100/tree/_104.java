@@ -25,21 +25,4 @@ public class _104 {
         }
         return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
-
-//    public static int dfs(int maxDepth, TreeNode node) {
-//        if (node == null) {
-//            return 0;
-//        }
-//        // 叶子节点
-//        if (node.left == null && node.right == null) {
-//            return maxDepth + 1;
-//        }
-//        if (node.left != null && node.right != null) {
-//            return Math.max(dfs(maxDepth, node.left), dfs(maxDepth, node.right)) + 1;
-//        }
-//        if (node.left == null) {
-//            return Math.max(maxDepth, dfs(maxDepth, node.right)) + 1;
-//        }
-//        return Math.max(maxDepth, dfs(maxDepth, node.left)) + 1;
-//    }
 }
