@@ -1,6 +1,7 @@
 package org.example.hot100.tree;
 
 import org.example.TreeNode;
+import scala.Int;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -25,74 +26,20 @@ public class _617 {
         TreeNode root2 = new TreeNode(1);
         root2.right = new TreeNode(2);
         root2.right.right = new TreeNode(3);
-        root2.right.right.left = new TreeNode(4);
 
-        o.mergeTrees(root1, root2);
+        System.out.println(o.depth(root1));
+        System.out.println(o.depth(root2));
 
-//        System.out.println((int) (Math.log(1) / Math.log(2)) + 1);
-//        System.out.println((int) (Math.log(2) / Math.log(2)) + 1);
-//        System.out.println((int) (Math.log(3) / Math.log(2)) + 1);
-//        System.out.println((int) (Math.log(4) / Math.log(2)) + 1);
-//        System.out.println((int) (Math.log(5) / Math.log(2)) + 1);
-//        System.out.println((int) (Math.log(6) / Math.log(2)) + 1);
-//        System.out.println((int) (Math.log(7) / Math.log(2)) + 1);
-//        System.out.println((int) (Math.log(8) / Math.log(2)) + 1);
+        o.levelOrderPrint(root1, 3);
+        System.out.println();
+        o.levelOrderPrint(root2,3);
     }
 
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
         List<TreeNode> tree1 = new ArrayList<>();
         List<TreeNode> tree2 = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root1);
-        boolean flag = true;
-        while (!queue.isEmpty() && flag) {
-            int levelSize = queue.size();
-            int size = levelSize;
-            int nullCount = 0;
-            while (size > 0) {
-                TreeNode node = queue.poll();
-                tree1.add(node);
-                size--;
-                if (node == null) {
-                    nullCount++;
-                    queue.offer(null);
-                    queue.offer(null);
-                    continue;
-                }
-                queue.offer(node.left);
-                queue.offer(node.right);
-                System.out.print(node.val + " ");
-            }
-            if (nullCount == levelSize) {
-                flag = false;
-            }
-        }
-        System.out.println();
-        queue.clear();
-        queue.offer(root2);
-        flag = true;
-        while (!queue.isEmpty() && flag) {
-            int levelSize = queue.size();
-            int size = levelSize;
-            int nullCount = 0;
-            while (size > 0) {
-                TreeNode node = queue.poll();
-                tree2.add(node);
-                size--;
-                if (node == null) {
-                    nullCount++;
-                    queue.offer(null);
-                    queue.offer(null);
-                    continue;
-                }
-                queue.offer(node.left);
-                queue.offer(node.right);
-                System.out.print(node.val + " ");
-            }
-            if (nullCount == levelSize) {
-                flag = false;
-            }
-        }
+
         List<TreeNode> res = new ArrayList<>();
         int len = Math.max(tree1.size(), tree2.size());
         for (int i = 0; i < len; i++) {
@@ -163,4 +110,69 @@ public class _617 {
 
         return res.get(0);
     }
+
+    public int depth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.max(depth(root.left), depth(root.right)) + 1;
+    }
+
+    public void levelOrderTree(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size > 0) {
+                TreeNode node = queue.poll();
+                size--;
+                if (node == null) {
+                    System.out.print("null ");
+                    continue;
+                }
+                queue.offer(node.left);
+                queue.offer(node.right);
+                System.out.print(node.val + " ");
+            }
+        }
+    }
+
+
+    public void levelOrderPrint(TreeNode root, int depth) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int curDepth = 0;
+        while (!queue.isEmpty()) {
+            curDepth++;
+            int size = queue.size();
+            while (size > 0) {
+                TreeNode node = queue.poll();
+                size--;
+                if (node == null) {
+                    if (curDepth <= depth) {
+                        queue.offer(null);
+                        queue.offer(null);
+                        System.out.print("null ");
+                    }
+                    continue;
+                }
+                queue.offer(node.left);
+                queue.offer(node.right);
+                System.out.print(node.val + " ");
+            }
+        }
+    }
+
+    // 层序列表重建树
+    public TreeNode inorderToTree(List<Integer> list) {
+        int depth = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode root = new TreeNode(list.get(0));
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+
+        }
+    }
+
 }
