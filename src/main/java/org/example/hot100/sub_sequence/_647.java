@@ -1,4 +1,4 @@
-package org.example.hot100.string;
+package org.example.hot100.sub_sequence;
 
 public class _647 {
 
