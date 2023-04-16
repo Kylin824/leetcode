@@ -34,6 +34,7 @@ public class _300 {
         System.out.println(o.lengthOfLIS(new int[]{1, 3, 6, 7, 9, 4, 10, 5, 6})); // 6
     }
 
+    // dp 从右到左
     public int lengthOfLIS(int[] nums) {
         int dp[] = new int[nums.length];
         Arrays.fill(dp, 1);
@@ -53,4 +54,23 @@ public class _300 {
         }
         return count;
     }
+
+    // dp 从左到右
+    public int lengthOfLIS1(int[] nums) {
+        int dp[] = new int[nums.length];
+        dp[0] = 1;
+        int max = 1;
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (nums[j] < nums[i]) {
+                    dp[i] = Math.max(dp[j] + 1, dp[i]);
+                }
+            }
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+
 }
