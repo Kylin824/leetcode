@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.slide_window;
 
 import java.util.HashSet;
 import java.util.Set;
