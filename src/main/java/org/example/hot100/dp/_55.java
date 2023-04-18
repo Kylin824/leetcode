@@ -40,7 +40,7 @@ public class _55 {
         return dp[dp.length - 1];
     }
 
-    // 贪心
+    // 贪心？
     public boolean canJump1(int[] nums) {
         int maxRight = 0; // 从左到右最大能走到的位置
         for (int i = 0; i < nums.length; i++) {
