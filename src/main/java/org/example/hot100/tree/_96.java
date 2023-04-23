@@ -1,4 +1,4 @@
-package org.example.hot100.dp;
+package org.example.hot100.tree;
 
 public class _96 {
 
