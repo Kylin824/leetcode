@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.structure;
 
 import java.util.Stack;
 
