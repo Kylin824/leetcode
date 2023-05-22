@@ -1,4 +1,4 @@
-package org.example.hot100.array;
+package org.example.hot100.stack;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -14,7 +14,8 @@ public class _739 {
 //        System.out.println(Arrays.toString(dailyTemperatures1(new int[]{73, 74, 75, 71, 69, 72, 76, 73})));
 //        System.out.println(Arrays.toString(dailyTemperatures(new int[]{89, 62, 70, 58, 47, 47, 46, 76, 100, 70})));
 //        System.out.println(Arrays.toString(dailyTemperatures1(new int[]{89, 62, 70, 58, 47, 47, 46, 76, 100, 70})));
-        System.out.println(Arrays.toString(dailyTemperatures1(new int[]{71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71})));
+//        System.out.println(Arrays.toString(dailyTemperatures1(new int[]{71, 71, 71, 71, 71, 99, 99, 99, 99, 99, 99})));
+        System.out.println(Arrays.toString(dailyTemperatures2(new int[]{71, 71, 71, 71, 71, 99, 99, 99, 99, 99, 99})));
     }
 
     // 二重循环 超时
@@ -42,13 +43,9 @@ public class _739 {
         return res;
     }
 
-    //
+    // 栈
     public static int[] dailyTemperatures1(int[] temperatures) {
-        if (temperatures.length == 0) {
-            return null;
-        }
         int[] res = new int[temperatures.length];
-        res[temperatures.length - 1] = 0;
         Stack<Integer> stack = new Stack<>();
         stack.push(temperatures[temperatures.length - 1]);
         for (int i = temperatures.length - 2; i >= 0; i--) {
@@ -79,4 +76,17 @@ public class _739 {
         return res;
     }
 
+    // 单调栈 模板题
+    public static int[] dailyTemperatures2(int[] temperatures) {
+        int[] res = new int[temperatures.length];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < temperatures.length; i++) {
+            while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]) {
+                int idx = stack.pop();
+                res[idx] = i - idx;
+            }
+            stack.push(i);
+        }
+        return res;
+    }
 }
