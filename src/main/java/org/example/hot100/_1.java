@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class _1 {
     /*
-    https://leetcode.cn/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/
+    01 两数之和
 
     输入：nums = [2,7,11,15], target = 9
     输出：[0,1]
