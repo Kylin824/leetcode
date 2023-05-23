@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.prefix_sum;
 
 import java.util.Arrays;
 import java.util.HashMap;
