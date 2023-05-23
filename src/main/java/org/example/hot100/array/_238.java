@@ -12,8 +12,6 @@ public class _238 {
     }
 
     public int[] productExceptSelf(int[] nums) {
-
-
         int[] answer = new int[nums.length];
 
         int[] left = new int[nums.length];

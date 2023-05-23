@@ -13,7 +13,7 @@ public class _287 {
 
     public static void main(String[] args) {
         _287 o = new _287();
-        System.out.println(o.findDuplicate3(new int[]{8,7,1,10,17,15,18,11,16,9,19,12,5,14,3,4,2,13,18,18}));;
+        System.out.println(o.findDuplicate3(new int[]{8, 7, 1, 10, 17, 15, 18, 11, 16, 9, 19, 12, 5, 14, 3, 4, 2, 13, 18, 18}));
     }
 
     // 修改数组的方式
