@@ -1,0 +1,2 @@
+前缀和7道题解：
+https://leetcode.cn/problems/count-number-of-nice-subarrays/solution/de-liao-wo-ba-qian-zhui-he-gei-ba-de-gan-ymzz/

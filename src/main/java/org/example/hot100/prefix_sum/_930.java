@@ -10,6 +10,7 @@ import java.util.Map;
 public class _930 {
 
     /**
+     * 同_560
      * 给你一个二元数组 nums ，和一个整数 goal ，请你统计并返回有多少个和为 goal 的 非空 子数组。
      */
 
