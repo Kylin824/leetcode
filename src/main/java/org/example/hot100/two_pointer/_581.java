@@ -1,4 +1,4 @@
-package org.example.hot100.array;
+package org.example.hot100.two_pointer;
 
 /**
  * @author kylin
