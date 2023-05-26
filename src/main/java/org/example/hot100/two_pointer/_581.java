@@ -23,21 +23,45 @@ public class _581 {
      */
 
     public static void main(String[] args) {
-//        System.out.println(findUnsortedSubarray(new int[]{2, 6, 4, 8, 10, 9, 15})); // 5
-//        System.out.println(findUnsortedSubarray(new int[]{1, 2, 3, 4})); // 0
-//        System.out.println(findUnsortedSubarray(new int[]{3, 2, 1})); // 3
-//        System.out.println(findUnsortedSubarray(new int[]{2, 1})); // 2
-//        System.out.println(findUnsortedSubarray(new int[]{1, 3, 2, 2, 2})); // 4
-//        System.out.println(findUnsortedSubarray(new int[]{1, 2, 3, 3, 3})); // 0
+        System.out.println(findUnsortedSubarray(new int[]{2, 6, 4, 8, 10, 9, 15})); // 5
+        System.out.println(findUnsortedSubarray(new int[]{1, 2, 3, 4})); // 0
+        System.out.println(findUnsortedSubarray(new int[]{3, 2, 1})); // 3
+        System.out.println(findUnsortedSubarray(new int[]{2, 1})); // 2
+        System.out.println(findUnsortedSubarray(new int[]{1, 3, 2, 2, 2})); // 4
+        System.out.println(findUnsortedSubarray(new int[]{1, 2, 3, 3, 3})); // 0
         System.out.println(findUnsortedSubarray(new int[]{2, 3, 3, 2, 4})); // 3
     }
 
+    // 双指针
     public static int findUnsortedSubarray(int[] nums) {
-        if (nums.length <= 1) {
+        int l = 0;
+        while (l < nums.length - 1 && nums[l] <= nums[l + 1]) {
+            l++;
+        }
+        if (l == nums.length - 1) {
+             return 0;
+        }
+        int r = nums.length - 1;
+        while (r > 0 && nums[r] >= nums[r - 1]) {
+            r--;
+        }
+        if (r == 0) {
             return 0;
         }
-        if (nums.length == 2) {
-            return nums[0] <= nums[1] ? 0 : 2;
+
+        // 此时 0-l递增 l-r无序 r-n递增
+        // 子数组的左边界必定在0-l之间，有边界必定在r-n之间
+        for (int i = l + 1; i < nums.length; i++) {
+            while (l >= 0 && nums[i] < nums[l]) {
+                l--;
+            }
         }
+        for (int i = r - 1; i >= 0; i--) {
+            while (r < nums.length && nums[i] > nums[r]) {
+                r++;
+            }
+        }
+        return r - l - 1;
+
     }
 }
