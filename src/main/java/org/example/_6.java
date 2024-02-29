@@ -59,12 +59,12 @@ package org.example;
 public class _6 {
 
     public String convert(String s, int numRows) {
-        char[] ss = s.toCharArray();
-        StringBuilder sb = new StringBuilder();
-        int curRows = 1;
         if (numRows <= 1) {
             return s;
         }
+        char[] ss = s.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        int curRows = 1;
         while (curRows <= numRows) {
             boolean odd = true;
             int index = curRows - 1;
