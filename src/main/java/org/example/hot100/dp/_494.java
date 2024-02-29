@@ -56,13 +56,4 @@ public class _494 {
         return find(nums, i + 1, nums[i] + target) + find(nums, i + 1, target - nums[i]);
     }
 
-    // dp 背包问题
-    public static int findTargetSumWays1(int[] nums, int target) {
-        int[] dp = new int[nums.length];
-
-        for (int i = 0; i < nums.length; i++) {
-            dp[]
-        }
-    }
-
 }
