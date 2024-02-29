@@ -117,4 +117,35 @@ public class _2 {
         return res.next;
 
     }
+
+    public ListNode addTwoNumbers3(ListNode l1, ListNode l2, int sh) {
+        if (l1 == null && l2 == null) {
+            if (sh > 0) {
+                return new ListNode(sh);
+            }
+            return null;
+        }
+        if (l1 == null) {
+            int ge = (l2.val + sh) % 10; // 个位
+            int nsh = (l2.val + sh) / 10; // 进位
+            ListNode cur = new ListNode(ge);
+            ListNode next = addTwoNumbers3(null, l2.next, nsh);
+            cur.next = next;
+            return cur;
+        }
+        if (l2 == null) {
+            int ge = (l1.val + sh) % 10;
+            int nsh = (l1.val + sh) / 10;
+            ListNode cur = new ListNode(ge);
+            ListNode next = addTwoNumbers3(null, l1.next, nsh);
+            cur.next = next;
+            return cur;
+        }
+        int ge = (l1.val + l2.val + sh) % 10;
+        int nsh = (l1.val + l2.val + sh) / 10;
+        ListNode cur = new ListNode(ge);
+        ListNode next = addTwoNumbers3(l1.next, l2.next, nsh);
+        cur.next = next;
+        return cur;
+    }
 }
