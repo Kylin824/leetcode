@@ -45,10 +45,6 @@ package org.example.hot100;
 //
 // Related Topics 数学 👍 3963 👎 0
 
-/**
- * @author kylin
- * @date 2024/2/29
- */
 public class _7 {
 
     public int reverse(int x) {
