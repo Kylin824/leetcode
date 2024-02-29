@@ -59,9 +59,34 @@ package org.example.hot100;
 //
 // Related Topics 数组 双指针 👍 3478 👎 0
 
+import java.util.Arrays;
+
 public class _26 {
 
     public int removeDuplicates(int[] nums) {
+        if (nums.length <= 1) {
+            return nums.length;
+        }
+        int i = 0;
+        int j = 1;
+        while (j < nums.length) {
+            if (nums[i] == nums[j]) {
+                j++;
+            } else {
+                i++;
+                for (int k = i; k < j; k++) {
+                    nums[k] = nums[j];
+                }
+                j = i + 1;
+            }
+        }
+        return i + 1;
+    }
 
+    public static void main(String[] args) {
+        _26 a = new _26();
+        int[] ints = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        System.out.println(a.removeDuplicates(ints));
+        System.out.println(Arrays.toString(ints));
     }
 }
