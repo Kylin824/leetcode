@@ -53,37 +53,51 @@ package org.example.hot100;
 
 public class _292 {
 
+    // 递归解法
     public boolean canWinNim(int n) {
-        return canWinNim(n, true);
+        if (n == 1 || n == 2 || n == 3) {
+            return true;
+        }
+        if (n == 4) {
+            return false;
+        }
+        return !(canWinNim(n - 1) & canWinNim(n - 2) & canWinNim(n - 3));
     }
 
-    public boolean canWinNim(int n, boolean fi) {
-        // 先手
-        if (fi) {
-            if (n == 1 || n == 2 || n == 3) {
-                return true;
-            }
-            if (n == 4) {
-                return false;
-            }
+    // dp解法
+    public boolean canWinNim1(int n) {
+        if (n <= 3) {
+            return true;
         }
-        if (!fi) {
-            if (n == 1 || n == 2 || n == 3) {
-                return false;
-            }
-            if (n == 4) {
-                return true;
-            }
+        if (n == 4) {
+            return false;
         }
-        return canWinNim(n - 1, !fi) || canWinNim(n - 2, !fi) || canWinNim(n - 3, !fi);
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        dp[1] = true;
+        dp[2] = true;
+        dp[3] = true;
+        dp[4] = false;
+        for (int i = 5; i <= n; i++) {
+            dp[i] = !(dp[i - 1] & dp[i - 2] & dp[i - 3]);
+        }
+        return dp[n];
     }
+
+    // dp矩阵中发现实际上只要是4的倍数就是false，其他都是true
+    public boolean canWinNim2(int n) {
+        return n % 4 != 0;
+    }
+
 
     public static void main(String[] args) {
         _292 a = new _292();
-//        System.out.println(a.canWinNim(4)); // false
-//        System.out.println(a.canWinNim(8)); // false
-//        System.out.println(a.canWinNim(5)); // true
-        System.out.println(a.canWinNim(10)); // true
+        System.out.println(a.canWinNim1(1)); // true
+        System.out.println(a.canWinNim1(4)); // false
+        System.out.println(a.canWinNim1(5)); // true
+        System.out.println(a.canWinNim1(8)); // false
+        System.out.println(a.canWinNim1(10)); // true
+        System.out.println(a.canWinNim1(1348820612)); // false
     }
 
 }
