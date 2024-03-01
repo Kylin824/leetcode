@@ -31,6 +31,8 @@ import java.util.Stack;
 public class _230 {
 
     // 中序遍历，遍历到的第k个即为第k大的值
+
+    // 迭代版
     public int kthSmallest(TreeNode root, int k) {
         List<TreeNode> res = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -49,12 +51,28 @@ public class _230 {
         return 0;
     }
 
+    // 递归版
+    public int kthSmallest1(TreeNode root, int k) {
+        List<TreeNode> res = new ArrayList<>();
+        inorder(root, res, k);
+        return res.get(k - 1).val;
+    }
+
+    public void inorder(TreeNode root, List<TreeNode> res, int k) {
+        if (root == null || res.size() == k) {
+            return;
+        }
+        inorder(root.left, res, k);
+        res.add(root);
+        inorder(root.right, res, k);
+    }
+
     public static void main(String[] args) {
         _230 a = new _230();
         TreeNode root = new TreeNode(30);
         root.left = new TreeNode(20);
         root.right = new TreeNode(40);
         root.left.left = new TreeNode(10);
-        System.out.println(a.kthSmallest(root, 2));
+        System.out.println(a.kthSmallest1(root, 2));
     }
 }
