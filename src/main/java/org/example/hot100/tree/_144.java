@@ -10,6 +10,16 @@ public class _144 {
 
     // 二叉树前序遍历
 
+    public static void main(String[] args) {
+        _144 obj =  new _144();
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(4);
+        root.left.left = new TreeNode(1);
+        List<Integer> res = obj.preorderTraversal(root);
+        System.out.println(res);
+    }
+
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) {
