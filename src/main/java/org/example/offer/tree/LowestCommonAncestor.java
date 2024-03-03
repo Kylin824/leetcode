@@ -4,7 +4,7 @@ import org.example.TreeNode;
 
 public class LowestCommonAncestor {
     /*
-        NO.68 二叉树的公共祖先
+        NO.68 二叉搜索树的最近公共祖先
      */
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null)
