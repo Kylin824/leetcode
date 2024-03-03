@@ -47,7 +47,8 @@ public class _55 {
     }
 
     // 贪心
-    // 每一次都尝试最远距离，如果最远距离大于等于当前位置，则是可达的
+    // 每一个位置都尝试最远距离并记录
+    // 每一个位置与当前最远距离比较，小于最远距离则是可达的
     public boolean canJump1(int[] nums) {
         int maxRight = 0; // 从左到右最大能走到的位置
         for (int i = 0; i < nums.length; i++) {

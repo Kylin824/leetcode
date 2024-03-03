@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.dp;
 
 //给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
 //
@@ -36,8 +36,18 @@ package org.example.hot100;
 
 public class _122 {
 
-//    public int maxProfit(int[] prices) {
-//
-//    }
+    // 贪心，只要当天价格低于昨天价格，就买入昨天卖出今天
+    public int maxProfit(int[] prices) {
+        int len = prices.length;
+        if (len < 2) {
+            return 0;
+        }
+
+        int res = 0;
+        for (int i = 1; i < len; i++) {
+            res += Math.max(prices[i] - prices[i - 1], 0);
+        }
+        return res;
+    }
 
 }
