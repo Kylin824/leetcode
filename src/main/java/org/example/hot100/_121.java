@@ -28,29 +28,36 @@ package org.example.hot100;
 
 public class _121 {
 
-    // dp
+    // dp[n]
     public int maxProfit(int[] prices) {
-
         if (prices.length == 0) {
             return 0;
         }
-
         int[] dp = new int[prices.length];
         dp[0] = 0;
-
         // 当前遇到过的最小价格
         int minPrice = prices[0];
-
         for (int i = 1; i <= prices.length - 1; i++) {
             minPrice = Math.min(prices[i], minPrice); // 当天价格最小则更新当前最小价格
             dp[i] = Math.max(dp[i - 1], prices[i] - minPrice);
         }
-
         return dp[prices.length - 1];
+    }
+
+    // dp[1]
+    public int maxProfit1(int[] prices) {
+        // 当前遇到过的最小价格
+        int minPrice = prices[0];
+        int maxProfit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            minPrice = Math.min(prices[i], minPrice); // 当天价格最小则更新当前最小价格
+            maxProfit = Math.max(prices[i] - minPrice, maxProfit);
+        }
+        return maxProfit;
     }
 
     public static void main(String[] args) {
         _121  a = new _121();
-        System.out.println(a.maxProfit(new int[]{7,1,5,3,6,4}));;
+        System.out.println(a.maxProfit1(new int[]{7,1,5,3,6,4}));;
     }
 }
