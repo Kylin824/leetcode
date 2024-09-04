@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.stack;
 
 import java.util.Stack;
 
@@ -15,27 +15,27 @@ public class _20 {
      */
 
 
-    // 栈
-    public boolean isValid(String s) {
+    public static void main(String[] args) {
+        System.out.println(isValid("()[]{}"));
+        System.out.println(isValid("([]{})"));
+        System.out.println(isValid("([{}])"));
+    }
+
+    public static boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
-            if (c == '(' || c == '{' || c == '[') {
+            if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
             } else {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                Character left = stack.pop();
-                if ((left == '(' && c != ')')
-                        || (left == '{' && c != '}')
-                        || (left == '[' && c != ']')) {
+                char top = stack.pop();
+                if (c == ')' && top != '(' || c == ']' && top != '[' || c == '}' && top != '{') {
                     return false;
                 }
             }
         }
-        if (!stack.isEmpty()) {
-            return false;
-        }
-        return true;
+        return stack.isEmpty();
     }
 }

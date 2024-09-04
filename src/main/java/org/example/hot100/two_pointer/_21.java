@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.two_pointer;
 
 import org.example.ListNode;
 
@@ -26,10 +26,10 @@ public class _21 {
         if (list1 == null && list2 == null) {
             return null;
         }
-        if (list1 == null && list2 != null) {
+        if (list1 == null) {
             return list2;
         }
-        if (list1 != null && list2 == null) {
+        if (list2 == null) {
             return list1;
         }
 
@@ -66,7 +66,7 @@ public class _21 {
                 b = b.next;
                 p = p.next;
             }
-        } else if (b == null) {
+        } else {
             while (a != null) {
                 p.next = a;
                 a = a.next;
