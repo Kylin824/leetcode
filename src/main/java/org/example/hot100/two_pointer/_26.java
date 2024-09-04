@@ -1,4 +1,4 @@
-package org.example.hot100;
+package org.example.hot100.two_pointer;
 
 
 //给你一个 非严格递增排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持
@@ -59,11 +59,9 @@ package org.example.hot100;
 //
 // Related Topics 数组 双指针 👍 3478 👎 0
 
-import java.util.Arrays;
-
 public class _26 {
 
-    public int removeDuplicates(int[] nums) {
+    public static int removeDuplicates(int[] nums) {
         if (nums.length <= 1) {
             return nums.length;
         }
@@ -84,9 +82,6 @@ public class _26 {
     }
 
     public static void main(String[] args) {
-        _26 a = new _26();
-        int[] ints = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-        System.out.println(a.removeDuplicates(ints));
-        System.out.println(Arrays.toString(ints));
+        System.out.println(removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
     }
 }
