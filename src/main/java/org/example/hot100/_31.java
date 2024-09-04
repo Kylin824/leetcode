@@ -24,7 +24,9 @@ public class _31 {
      */
 
     public static void main(String[] args) {
-
+        int[] ints = {1, 2, 7, 4, 3, 1};
+        nextPermutation(ints);
+        System.out.println(Arrays.toString(ints));
     }
 
 
