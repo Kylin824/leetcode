@@ -1,7 +1,5 @@
 package org.example.leetcode.math;
 
-import org.apache.spark.sql.execution.columnar.INT;
-
 import java.util.ArrayList;
 import java.util.List;
 

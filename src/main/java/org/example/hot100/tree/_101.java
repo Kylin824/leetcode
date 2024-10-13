@@ -1,6 +1,5 @@
 package org.example.hot100.tree;
 
-import javafx.print.Collation;
 import org.example.TreeNode;
 
 import java.util.ArrayList;

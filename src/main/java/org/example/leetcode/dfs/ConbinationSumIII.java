@@ -1,9 +1,6 @@
 package org.example.leetcode.dfs;
 
-import scala.Int;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ConbinationSumIII {

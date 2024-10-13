@@ -1,7 +1,5 @@
 package org.example.leetcode.scene;
 
-import org.apache.hadoop.util.hash.Hash;
-
 import java.util.HashSet;
 import java.util.Set;
 

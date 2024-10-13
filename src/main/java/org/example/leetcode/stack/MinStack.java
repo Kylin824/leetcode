@@ -1,7 +1,5 @@
 package org.example.leetcode.stack;
 
-import scala.Int;
-
 import java.util.Stack;
 
 public class MinStack {

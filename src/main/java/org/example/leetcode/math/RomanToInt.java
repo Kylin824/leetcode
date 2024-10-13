@@ -1,7 +1,5 @@
 package org.example.leetcode.math;
 
-import scala.Int;
-
 import java.util.HashMap;
 
 public class RomanToInt {
