@@ -19,38 +19,46 @@ public class _394 {
 
     public static void main(String[] args) {
 
-//        System.out.println(decodeString("3[a]2[bc]")); // aaabcbc
-        System.out.println(decodeString("3[a2[c]]")); // accaccacc
+        System.out.println(decodeString("3[a]2[bc]")); // aaabcbc
+        System.out.println(decodeString("3[a2[bc]]")); // abcbcabcbcabcbc
+        System.out.println(decodeString("100[leetcode]")); // abcbcabcbcabcbc
 
 
     }
 
     public static String decodeString(String s) {
-
-        StringBuilder sb = new StringBuilder();
         StringBuilder res = new StringBuilder();
         Stack<Character> stack = new Stack<>();
-
         for (char c : s.toCharArray()) {
             if (c != ']') {
                 stack.push(c);
             } else {
+                // 子串
+                StringBuilder sb = new StringBuilder();
                 while (stack.peek() != '[') {
                     sb.append(stack.pop());
                 }
                 sb = sb.reverse();
-                stack.pop();
-                sb.append(res);
-                if (stack.peek() >= '0' && stack.peek() <= '9') {
-                    int num = stack.pop() - '0';
-                    for (int i = 1; i <= num; i++) {
-                        res.append(sb);
+                stack.pop(); // '['
+
+                StringBuilder nb = new StringBuilder();
+                // 数值
+                while (!stack.isEmpty() && stack.peek() >= '0' && stack.peek() <= '9') {
+                    nb.append(stack.pop());
+                }
+                nb = nb.reverse();
+                int num = Integer.parseInt(nb.toString());
+                for (int i = 1; i <= num; i++) {
+                    for (int j = 0; j < sb.length(); j++) {
+                        stack.push(sb.charAt(j));
                     }
                 }
-                sb = new StringBuilder();
             }
         }
-        return res.toString();
+        while (!stack.isEmpty()) {
+            res.append(stack.pop());
+        }
+        return res.reverse().toString();
     }
 
 
