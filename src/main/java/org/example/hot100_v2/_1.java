@@ -4,10 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 两数之和
  * @author kylin
  * @date 2026/6/25
  */
-public class _1 { // 两数之和
+public class _1 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
