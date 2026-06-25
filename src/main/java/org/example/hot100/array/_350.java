@@ -36,8 +36,6 @@ package org.example.hot100.array;
 // 如果 nums1 的大小比 nums2 小，哪种方法更优？
 // 如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
 
-import scala.Int;
-
 import java.util.*;
 
 public class _350 {

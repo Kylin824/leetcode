@@ -1,7 +1,6 @@
 package org.example.hot100.tree;
 
 import org.example.TreeNode;
-import scala.Int;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
