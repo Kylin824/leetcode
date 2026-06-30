@@ -3,6 +3,7 @@ package org.example.hot100_v2;
 import java.util.Arrays;
 
 /**
+ * 移动数组中的0到末尾
  * @author kylin
  * @date 2026/6/30
  */

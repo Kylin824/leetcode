@@ -1,6 +1,5 @@
 package org.example.hot100_v2;
 
-import org.example.ListNode;
 import org.example.TreeNode;
 
 /**

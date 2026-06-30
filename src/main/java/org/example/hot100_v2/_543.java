@@ -2,6 +2,11 @@ package org.example.hot100_v2;
 
 import org.example.TreeNode;
 
+/**
+ * 二叉树的直径
+ * @author kylin
+ * @date 2026/6/30
+ */
 public class _543 {
 
     int maxDepth = 0;

@@ -1,7 +1,7 @@
 package org.example.hot100_v2;
 
 /**
- * 只出现一次的数字
+ * 只出现一次的数字，其余数字都出现2次
  *
  * @author kylin
  * @date 2026/6/29

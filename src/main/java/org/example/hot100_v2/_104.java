@@ -5,6 +5,11 @@ import org.example.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 二叉树的高度
+ * @author kylin
+ * @date 2026/6/29
+ */
 public class _104 {
 
     public int maxDepth(TreeNode root) {

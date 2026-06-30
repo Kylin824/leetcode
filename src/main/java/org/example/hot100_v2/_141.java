@@ -2,6 +2,11 @@ package org.example.hot100_v2;
 
 import org.example.ListNode;
 
+/**
+ * 链表是否有环
+ * @author kylin
+ * @date 2026/6/29
+ */
 public class _141 {
 
     public boolean hasCycle(ListNode head) {

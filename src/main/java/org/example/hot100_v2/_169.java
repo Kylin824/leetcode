@@ -1,5 +1,10 @@
 package org.example.hot100_v2;
 
+/**
+ * 找出数组中占比超过1/2的数
+ * @author kylin
+ * @date 2026/6/30
+ */
 public class _169 {
 
     public int majorityElement(int[] nums) {

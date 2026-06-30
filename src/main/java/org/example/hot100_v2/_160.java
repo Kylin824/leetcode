@@ -2,6 +2,11 @@ package org.example.hot100_v2;
 
 import org.example.ListNode;
 
+/**
+ * 找出链表相交的位置
+ * @author kylin
+ * @date 2026/6/29
+ */
 public class _160 {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

@@ -4,6 +4,11 @@ import org.example.ListNode;
 
 import java.util.Stack;
 
+/**
+ * 翻转链表
+ * @author kylin
+ * @date 2026/6/29
+ */
 public class _206 {
 
     public ListNode reverseList(ListNode head) {

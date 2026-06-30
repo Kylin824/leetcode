@@ -2,6 +2,11 @@ package org.example.hot100_v2;
 
 import org.example.ListNode;
 
+/**
+ * 是否回文链表
+ * @author kylin
+ * @date 2026/6/29
+ */
 public class _234 {
 
     public boolean isPalindrome(ListNode head) {
