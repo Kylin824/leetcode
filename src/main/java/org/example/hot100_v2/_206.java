@@ -8,8 +8,22 @@ public class _206 {
 
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) return head;
+        ListNode pre = null;
+        ListNode cur = head;
+        ListNode next = head.next;
+        while (cur != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+
+    public ListNode reverseListRecur(ListNode head) {
+        if (head == null || head.next == null) return head;
         ListNode p = head.next;
-        ListNode sHead = reverseList(head.next);
+        ListNode sHead = reverseListRecur(head.next);
         head.next = null;
         p.next = head;
         return sHead;
