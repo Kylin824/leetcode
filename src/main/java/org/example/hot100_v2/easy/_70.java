@@ -1,4 +1,4 @@
-package org.example.hot100_v2;
+package org.example.hot100_v2.easy;
 
 /**
  * 爬楼梯
