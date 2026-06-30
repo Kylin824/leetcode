@@ -6,6 +6,13 @@ public class _234 {
 
     public boolean isPalindrome(ListNode head) {
 
+        if (head == null) {
+            return false;
+        }
+        if (head.next == null) {
+            return true;
+        }
+
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
@@ -13,8 +20,24 @@ public class _234 {
             fast = fast.next.next;
         }
 
+        // 翻转
+        ListNode pre = null;
+        ListNode next;
+        while (slow != null) {
+            next = slow.next;
+            slow.next = pre;
+            pre = slow;
+            slow = next;
+        }
 
-        return false;
+        while (head != null && pre != null && head != pre) {
+            if (head.val != pre.val) {
+                return false;
+            }
+            head = head.next;
+            pre = pre.next;
+        }
+        return true;
     }
 
 }
