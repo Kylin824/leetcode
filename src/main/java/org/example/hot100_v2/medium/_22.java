@@ -27,6 +27,13 @@ public class _22 {
         s1.add("()");
         res.add(s1);
 
+        /*
+        类似动态规划，举例：第5行的括号可能的情况如下：
+        1、第1和第4的排列组合
+        2、第2和第3的排列组合
+        3、"(" + 第4的全部组合 + ")"
+         */
+
         for (int i = 2; i <= n; i++) {
             Set<String> set = new HashSet<>();
             for (int j = 1; j <= i / 2; j++) {
