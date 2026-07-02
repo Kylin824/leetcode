@@ -1,4 +1,4 @@
-package org.example.hot100_v2.medium;
+package org.example.hot100_v2.medium.dp;
 
 /**
  * 机器人mxn格子 往下往右移动共有多少路径

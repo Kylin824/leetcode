@@ -1,4 +1,4 @@
-package org.example.hot100_v2.medium;
+package org.example.hot100_v2.medium.dp;
 
 /**
  * 最小路径和：mxn 左上角到右下角总和最小的路径之和
