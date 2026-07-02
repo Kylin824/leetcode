@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * 数组中元素组合等于目标值的总数
+ * 数组中元素组合等于目标值的case数
  *
  * @author kylin
  * @date 2026/7/2
