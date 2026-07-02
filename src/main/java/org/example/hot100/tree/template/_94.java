@@ -1,4 +1,4 @@
-package org.example.hot100.tree;
+package org.example.hot100.tree.template;
 
 import org.example.TreeNode;
 

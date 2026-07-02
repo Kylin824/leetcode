@@ -51,7 +51,7 @@ public class _144 {
             TreeNode node = stack.pop();
             list.add(node.val);
             if (node.right != null) {
-                stack.push(node.right);
+                stack.push(node.right); // 先进右再进左
             }
             if (node.left != null) {
                 stack.push(node.left);

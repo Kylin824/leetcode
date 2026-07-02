@@ -29,21 +29,16 @@ public class _114 {
 
     // 前序遍历后一一修改
     public void flatten(TreeNode root) {
-
         if (root == null) {
             return;
         }
-
         List<TreeNode> list = new ArrayList<>();
-
         preOrder(root, list);
-
         for (int i = 1; i < list.size(); i++) {
             TreeNode pre = list.get(i - 1);
             pre.left = null;
             pre.right = list.get(i);
         }
-
     }
 
     public void preOrder(TreeNode root, List<TreeNode> list) {
@@ -78,25 +73,5 @@ public class _114 {
             }
             pre = cur;
         }
-    }
-
-    public List<Integer> preorderTraversal1(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        if (root == null) {
-            return list;
-        }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            list.add(node.val);
-            if (node.right != null) {
-                stack.push(node.right);
-            }
-            if (node.left != null) {
-                stack.push(node.left);
-            }
-        }
-        return list;
     }
 }

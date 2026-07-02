@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Stack;
+
 public class TreeNode {
     public int val;
     public TreeNode left = null;
@@ -7,6 +9,24 @@ public class TreeNode {
 
     public TreeNode(int val) {
         this.val = val;
+    }
+
+    public static void print(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            System.out.print(node.val + " ");
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -17,6 +37,7 @@ public class TreeNode {
         root1.left.right.left = new TreeNode(4);
         root1.left.right.right = new TreeNode(7);
         root1.right = new TreeNode(7);
+        TreeNode.print(root1);
     }
 }
 
