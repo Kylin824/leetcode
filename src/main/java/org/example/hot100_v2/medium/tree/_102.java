@@ -5,6 +5,7 @@ import org.example.TreeNode;
 import java.util.*;
 
 /**
+ * 二叉树层序遍历
  * @author kylin
  * @date 2026/7/3
  */

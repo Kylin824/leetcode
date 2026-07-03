@@ -5,6 +5,7 @@ import org.example.TreeNode;
 import java.util.Stack;
 
 /**
+ * 二叉树转为单边树
  * @author kylin
  * @date 2026/7/3
  */
