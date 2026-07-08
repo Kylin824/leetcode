@@ -16,17 +16,6 @@ public class _287 {
         System.out.println(o.findDuplicate3(new int[]{8, 7, 1, 10, 17, 15, 18, 11, 16, 9, 19, 12, 5, 14, 3, 4, 2, 13, 18, 18}));
     }
 
-    // 修改数组的方式
-    public int findDuplicate(int[] nums) {
-        Arrays.sort(nums);
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1]) {
-                return nums[i];
-            }
-        }
-        return 0;
-    }
-
     public int findDuplicate1(int[] nums) {
         int tmp = 0;
         while (nums[0] != nums[nums[0]]) {
@@ -38,22 +27,6 @@ public class _287 {
     }
 
     // 不修改数组的方式
-
-
-    // 二重循环 超时
-    public int findDuplicate2(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (j == i) {
-                    continue;
-                }
-                if (nums[j] == nums[i]) {
-                    return nums[i];
-                }
-            }
-        }
-        return 0;
-    }
 
     // 二重循环优化 二分查找
     public int findDuplicate3(int[] nums) {
