@@ -5,165 +5,45 @@ import java.util.Arrays;
 public class HeapSort {
 
     public static void main(String[] args) {
-
         int[] arr = {9, 5, 2, 3, 7, 1, 6, 8, 4, 0};
-
-        heapSort3(arr);
-
+        heapSort(arr);
         System.out.println(Arrays.toString(arr));
+    }
 
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     public static void heapSort(int[] arr) {
-        for (int i = arr.length / 2 - 1; i >= 0; i--) {
-            heapAdjust(arr, i, arr.length);  // 建堆
+        int n = arr.length;
+        // 建堆，从最后一个非叶子节点的位置( n / 2 - 1)开始
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapAdjust(arr, i, n);
         }
-        int tmp;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            tmp = arr[i];
-            arr[i] = arr[0]; // 取走堆顶最大值
-            arr[0] = tmp;
-
-            heapAdjust(arr, 0, i);
+        for (int i = n - 1; i >= 0; i--) {
+            swap(arr, 0, i); // 取走堆顶最大值放到数组最后
+            heapAdjust(arr, 0, i); // 重新调整前面的堆
         }
     }
 
-    public static void heapAdjust(int[] heap, int i, int n) {
-        int tmp;
-        for (int j = 2 * i + 1; j < n; j = 2 * j + 1) {
-            if (j + 1 < n && heap[j] < heap[j + 1]) {
-                j++;
-            }
-            if (heap[i] < heap[j]) {
-                tmp = heap[i];
-                heap[i] = heap[j];
-                heap[j] = tmp;
-                i = j;
-            } else
-                break;
+    public static void heapAdjust(int[] arr, int i, int n) {
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        int largest = i;
+        // 左节点大于当前节点
+        if (left < n && arr[left] > arr[i]) {
+            largest = left;
         }
-    }
-
-    public static void heapSort1(int[] arr) {
-        for (int i = arr.length / 2 - 1; i >= 0; i--) {
-            heapAdjust1(arr, i, arr.length);
+        // 右节点大于当前节点
+        if (right < n && arr[right] > arr[largest]) {
+            largest = right;
         }
-        int tmp;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            tmp = arr[0];
-            arr[0] = arr[i];
-            arr[i] = tmp;
-
-            heapAdjust1(arr, 0, i);
-        }
-    }
-
-    public static void heapAdjust1(int[] heap, int i, int n) {
-        for (int j = 2 * i + 1; j < n; j = j * 2 + 1) {
-            if (j + 1 < n && heap[j] < heap[j + 1]) {
-                j++;
-            }
-            if (heap[i] < heap[j]) {
-                int tmp = heap[i];
-                heap[i] = heap[j];
-                heap[j] = tmp;
-
-                i = j;
-            } else
-                break;
-        }
-    }
-
-    public static void heapSort2(int[] arr) {
-        for (int i = arr.length / 2 - 1; i >= 0; i--) {
-            heapAdjust2(arr, i, arr.length);
-        }
-
-        int tmp;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            tmp = arr[0];
-            arr[0] = arr[i];
-            arr[i] = tmp;
-            heapAdjust2(arr, 0, i);
-        }
-    }
-
-    public static void heapAdjust2(int[] heap, int i, int n) {
-        int tmp;
-        for (int j = 2 * i + 1; j < n; j = 2 * j + 1) {
-            if (j + 1 < n && heap[j] < heap[j + 1]) {
-                j++;
-            }
-            if (heap[i] < heap[j]) {
-                tmp = heap[i];
-                heap[i] = heap[j];
-                heap[j] = tmp;
-
-                i = j;
-            } else
-                break;
-        }
-    }
-
-    public static void heapSort3(int[] arr) {
-        for (int i = arr.length / 2 - 1; i >= 0; i--) {
-            heapAdjust3(arr, i, arr.length);
-        }
-        int tmp = 0;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            tmp = arr[0];
-            arr[0] = arr[i];
-            arr[i] = tmp;
-            heapAdjust3(arr, 0, i);
-        }
-    }
-
-    public static void heapAdjust3(int[] heap, int i, int n) {
-        for (int j = 2 * i + 1; j < n; j = 2 * j + 1) {
-            if (j + 1 < n && heap[j] < heap[j + 1]) {
-                j++;
-            }
-            if (heap[i] < heap[j]) {
-                int tmp = heap[i];
-                heap[i] = heap[j];
-                heap[j] = tmp;
-
-                i = j;
-            } else
-                break;
-        }
-    }
-
-    public static void heapSort4(int[] arr) {
-        // 建堆
-        for (int i = arr.length / 2 - 1; i >= 0; i--) {
-            heapAdjust4(arr, i, arr.length);
-        }
-        int tmp = 0;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            // 堆顶交换到尾部
-            tmp = arr[0];
-            arr[0] = arr[i];
-            arr[i] = tmp;
-            // 调整0~n-1
-            heapAdjust4(arr, 0, i);
-        }
-    }
-
-    public static void heapAdjust4(int[] heap, int i, int n) {
-        for (int j = 2 * i + 1; j < n; j = 2 * j + 1) {
-            if (j + 1 < n && heap[j] < heap[j + 1]) { // 大根堆
-                j++;
-            }
-            if (heap[i] < heap[j]) {
-                int tmp = heap[i];
-                heap[i] = heap[j];
-                heap[j] = tmp;
-
-                i = j;
-            }
-            else
-                break;
+        // 子节点提到根节点位置，从子节点重新调整
+        if (largest != i) {
+            swap(arr, largest, i);
+            heapAdjust(arr, largest, n);
         }
     }
 }
