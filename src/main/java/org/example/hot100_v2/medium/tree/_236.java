@@ -27,7 +27,4 @@ public class _236 {
         return root;
     }
 
-    public static void main(String[] args) {
-
-    }
 }
