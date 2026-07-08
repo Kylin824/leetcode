@@ -6,6 +6,8 @@ import org.example.TreeNode;
  * 二叉搜索树转为累加树
  * @author kylin
  * @date 2026/7/8
+ *
+ * 反向中序遍历
  */
 public class _538 {
 
