@@ -1,4 +1,4 @@
-package org.example.hot100_v2.medium;
+package org.example.hot100_v2.medium.double_pointer;
 
 import org.example.ListNode;
 
