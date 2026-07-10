@@ -19,8 +19,7 @@ public class _337 {
         }
         int lr = rob(root.left) + rob(root.right);
         int rs = root.val + rob(root.left.left) + rob(root.left.right) + rob(root.right.left) + rob(root.right.right);
-        int max = Math.max(lr, rs);
-        return max;
+        return Math.max(lr, rs);
     }
 
     public static void main(String[] args) {
