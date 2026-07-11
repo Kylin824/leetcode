@@ -1,4 +1,4 @@
-package org.example.hot100_v2.medium;
+package org.example.hot100_v2.medium.dp;
 
 import java.util.*;
 

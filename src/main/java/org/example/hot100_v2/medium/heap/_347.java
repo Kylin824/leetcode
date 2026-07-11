@@ -1,13 +1,13 @@
-package org.example.hot100_v2.medium;
+package org.example.hot100_v2.medium.heap;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 数组前K个高频元素
  * @author kylin
  * @date 2026/7/9
+ *
+ * 堆排序、优先队列
  */
 
 public class _347 {
@@ -15,7 +15,7 @@ public class _347 {
     // map (数字 -> 出现次数)
     static Map<Integer, Integer> map = new HashMap<>();
 
-    public static int[] topKFrequent(int[] nums, int k) {
+    public static int[] topKFrequent1(int[] nums, int k) {
 
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
@@ -73,11 +73,35 @@ public class _347 {
     }
 
     public static void main(String[] args) {
-//        System.out.println(Arrays.toString(topKFrequent(new int[]{1,2,1,2,1,2,3,1,3,2}, 2))); // [1,2]
-//        System.out.println(Arrays.toString(topKFrequent(new int[]{1,2,1,2,1,2,3,2,3,2,3,3,3,3}, 2))); // [2,3]
-//        System.out.println(Arrays.toString(topKFrequent(new int[]{1,1,1,2,2,3}, 2))); // [1,2]
+        System.out.println(Arrays.toString(topKFrequent(new int[]{1,2,1,2,1,2,3,1,3,2}, 2))); // [1,2]
+        System.out.println(Arrays.toString(topKFrequent(new int[]{1,2,1,2,1,2,3,2,3,2,3,3,3,3}, 2))); // [2,3]
+        System.out.println(Arrays.toString(topKFrequent(new int[]{1,1,1,2,2,3}, 2))); // [1,2]
         System.out.println(Arrays.toString(topKFrequent(new int[]{5,2,5,3,5,3,1,1,3}, 2))); // [3,5]
 
+    }
+
+    public static int[] topKFrequent(int[] nums, int k) {
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        }
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k, new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                return map.get(o1) - map.get(o2);
+            }
+        });
+        for (Integer i : map.keySet()) {
+            if (queue.size() < k) {
+                queue.offer(i);
+            } else if (map.get(i) > map.get(queue.peek())) {
+                queue.poll();
+                queue.offer(i);
+            }
+        }
+        int[] res = new int[k];
+        for (int i = 0; i < k; i++) {
+            res[i] = queue.poll();
+        }
+        return res;
     }
 
 }
