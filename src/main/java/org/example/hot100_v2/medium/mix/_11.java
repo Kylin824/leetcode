@@ -5,7 +5,7 @@ package org.example.hot100_v2.medium.mix;
  * @author kylin
  * @date 2026/7/7
  *
- * 贪心，双指针
+ * 贪心 + 双指针
  */
 
 public class _11 {

@@ -1,4 +1,4 @@
-package org.example.hot100_v2.medium;
+package org.example.hot100_v2.medium.tree;
 
 import org.example.TreeNode;
 
@@ -10,6 +10,29 @@ import org.example.TreeNode;
 public class _337 {
 
     public int rob(TreeNode root) {
+        int[] result = dfs(root);
+        return Math.max(result[0], result[1]);
+    }
+
+    private int[] dfs(TreeNode node) {
+        // 返回数组: [不偷当前节点的最大值, 偷当前节点的最大值]
+        if (node == null) {
+            return new int[]{0, 0};
+        }
+
+        int[] left = dfs(node.left);
+        int[] right = dfs(node.right);
+
+        // 不偷当前节点：左右子节点可以偷或不偷，取最大值
+        int notRob = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+
+        // 偷当前节点：左右子节点都不能偷
+        int rob = node.val + left[0] + right[0];
+
+        return new int[]{notRob, rob};
+    }
+
+    public int robReserve(TreeNode root) {
         if (root == null) return 0;
         if (root.left == null && root.right == null) return root.val;
         if (root.left == null) {
