@@ -9,22 +9,22 @@ public class _74 {
 
     public static boolean searchMatrix(int[][] matrix, int target) {
         int left = 0, right = matrix.length - 1;
-        while (left < right) {
+        int targetRow = -1;
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             if (matrix[mid][0] > target) {
                 right = mid - 1;
             } else if (matrix[mid][0] < target) {
-                if (mid + 1 <= matrix.length - 1 && matrix[mid + 1][0] > target) {
-                    left = mid;
-                    break;
-                } else {
-                    left = mid + 1;
-                }
+                targetRow = mid;
+                left = mid + 1;
             } else {
                 return true;
             }
         }
-        int row = left;
+        if (targetRow == -1) {
+            return false;
+        }
+        int row = targetRow;
         left = 0;
         right = matrix[row].length - 1;
         while (left < right) {
@@ -37,7 +37,7 @@ public class _74 {
                 return true;
             }
         }
-        return target == matrix[row][left];
+        return false;
     }
 
     public static void main(String[] args) {
