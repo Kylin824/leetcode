@@ -1,4 +1,4 @@
-package org.example.hot100_v2.easy;
+package org.example.hot100_v2.easy.bit;
 
 /**
  * 比特位计数

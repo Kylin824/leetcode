@@ -1,4 +1,4 @@
-package org.example.hot100_v2.easy;
+package org.example.hot100_v2.easy.hash;
 
 import java.util.HashMap;
 import java.util.Map;

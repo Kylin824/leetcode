@@ -1,4 +1,4 @@
-package org.example.hot100_v2.easy;
+package org.example.hot100_v2.easy.double_pointer;
 
 /**
  * @author kylin
