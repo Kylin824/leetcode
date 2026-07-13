@@ -1,4 +1,4 @@
-package org.example.hot100_v2.medium;
+package org.example.hot100_v2.medium.bi_search;
 
 /**
  * 寻找重复数
@@ -40,6 +40,10 @@ public class _287 {
         }
         return i;
     }
+
+    // 快慢指针法：将数组视为链表：i → nums[i]
+    //因为存在重复数，所以链表中一定有环
+    //重复数就是环的入口
 
     public static void main(String[] args) {
         System.out.println(findDuplicate2(new int[]{1,3,4,2,2})); // 2
