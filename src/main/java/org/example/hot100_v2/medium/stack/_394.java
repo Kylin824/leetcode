@@ -1,4 +1,4 @@
-package org.example.hot100_v2.stack;
+package org.example.hot100_v2.medium.stack;
 
 import java.util.Stack;
 

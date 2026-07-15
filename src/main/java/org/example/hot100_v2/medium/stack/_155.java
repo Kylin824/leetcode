@@ -1,29 +1,27 @@
-package org.example.archive.interview.stack;
+package org.example.hot100_v2.medium.stack;
 
 import java.util.Stack;
 
-public class MinStack {
-    /*
-    面试题 03.02. 栈的最小值
-     */
+/**
+ * @author kylin
+ * @date 2026/7/15
+ */
+public class _155 {
+
     Stack<Integer> stack;
     Stack<Integer> minStack;
 
-    public MinStack() {
+    public _155() {
         stack = new Stack<>();
         minStack = new Stack<>();
     }
 
-    public void push(int x) {
-        stack.push(x);
+    public void push(int value) {
+        stack.push(value);
         if (minStack.isEmpty()) {
-            minStack.push(x);
-        }
-        else if (x < minStack.peek()) {
-            minStack.push(x);
-        }
-        else {
-            minStack.push(minStack.peek());
+            minStack.push(value);
+        } else {
+            minStack.push(Math.min(minStack.peek(), value));
         }
     }
 
