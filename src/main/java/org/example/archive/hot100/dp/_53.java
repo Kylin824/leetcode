@@ -1,4 +1,4 @@
-package org.example.archive.hot100.sub_sequence;
+package org.example.archive.hot100.dp;
 
 public class _53 {
 
