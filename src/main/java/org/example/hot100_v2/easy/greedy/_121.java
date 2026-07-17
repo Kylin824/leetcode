@@ -1,4 +1,4 @@
-package org.example.hot100_v2.easy;
+package org.example.hot100_v2.easy.greedy;
 
 /**
  * 买卖股票最佳时机

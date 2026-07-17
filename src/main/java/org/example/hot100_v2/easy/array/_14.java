@@ -1,6 +1,7 @@
-package org.example.hot100_v2.easy;
+package org.example.hot100_v2.easy.array;
 
 /**
+ * 最长公共前缀
  * @author kylin
  * @date 2026/7/13
  */

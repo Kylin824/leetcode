@@ -1,4 +1,4 @@
-package org.example.hot100_v2.easy;
+package org.example.hot100_v2.easy.bit;
 
 /**
  * 只出现一次的数字，其余数字都出现2次
