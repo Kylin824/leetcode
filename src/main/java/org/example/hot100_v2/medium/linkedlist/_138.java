@@ -1,14 +1,14 @@
 package org.example.hot100_v2.medium.linkedlist;
 
 
-import javax.management.NotificationEmitter;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 随机链表的复制
  * @author kylin
  * @date 2026/7/20 2:15
- * @description TODO
+ *
  */
 
 public class _138 {
