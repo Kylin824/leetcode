@@ -1,7 +1,9 @@
 
 #### 数组操作
 - 排序：Arrays.sort(arr, (a, b) -> a - b);
-- 列表转数组：list.toArray(new int[list.size()][]);
+- 列表转数组：
+- int[] array = list.stream().mapToInt(Integer::intValue).toArray();
+- 
 
 #### 数学运算
 - 取整：(int) Math.floor(x)
