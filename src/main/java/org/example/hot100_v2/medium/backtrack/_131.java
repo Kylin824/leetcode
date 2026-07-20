@@ -3,6 +3,16 @@ package org.example.hot100_v2.medium.backtrack;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 分割回文串
+ *
+ * 给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串。
+ * 返回 s 所有可能的分割方案。
+ *
+ * @author kylin
+ * @date 2026/7/21 1:24
+ */
+
 public class _131 {
 
     public List<List<String>> partition(String s) {
