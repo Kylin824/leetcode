@@ -1,5 +1,7 @@
 package org.example.hot100_v2.medium.dfs;
 
+import java.util.Arrays;
+
 /**
  * @author kylin
  * @date 2026/7/9
@@ -51,5 +53,6 @@ public class _200 {
         char[][] grid = new char[][]{{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}}; // 1
 
         System.out.println(numIslands(grid));
+        System.out.println(Arrays.deepToString(grid));
     }
 }
