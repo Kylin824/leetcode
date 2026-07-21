@@ -16,7 +16,6 @@ public class _200 {
 
         _200 o = new _200();
         System.out.println(o.numIslands(grid));
-
         System.out.println(Arrays.deepToString(grid));
     }
 
@@ -41,7 +40,7 @@ public class _200 {
         }
 
         if (grid[i][j] == '1') {
-            grid[i][j] = '2';
+            grid[i][j] = '2'; // 表示已访问过
         }
 
         if (i - 1 >= 0) {

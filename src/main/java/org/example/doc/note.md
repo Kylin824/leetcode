@@ -3,7 +3,7 @@
 - 排序：Arrays.sort(arr, (a, b) -> a - b);
 - 列表转数组：
 - int[] array = list.stream().mapToInt(Integer::intValue).toArray();
-- 
+- 打印二维数组：Arrays.deepToString(xxx);
 
 #### 数学运算
 - 取整：(int) Math.floor(x)

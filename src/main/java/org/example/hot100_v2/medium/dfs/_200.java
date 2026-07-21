@@ -6,18 +6,14 @@ package org.example.hot100_v2.medium.dfs;
  */
 public class _200 {
 
-    static int count = 0;
+
 
     public static int numIslands(char[][] grid) {
-
-        int h = grid.length;
-        int w = grid[0].length;
-
-        for (int i = 0; i < h; i++) {
-            for (int j = 0; j < w; j++) {
+        int count = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == '1') {
-                    dfs(grid, i + 1, j);
-                    dfs(grid, i, j + 1);
+                    dfs(grid, i, j); // 一次dfs会把所有相连通的1置为0
                     count++;
                 }
             }
