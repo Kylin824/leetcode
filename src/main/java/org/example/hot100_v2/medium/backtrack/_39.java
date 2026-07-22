@@ -14,17 +14,12 @@ import java.util.Stack;
 public class _39 {
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-
         List<List<Integer>> res = new ArrayList<>();
-
         Stack<Integer> path = new Stack<>();
-
         int index = 0;
         Arrays.sort(candidates);
         backTrack(res, path, index, candidates, target);
-
         return res;
-
     }
 
     public static void backTrack(List<List<Integer>> res, Stack<Integer> path, int index, int[] candidates, int target) {

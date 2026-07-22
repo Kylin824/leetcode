@@ -1,7 +1,5 @@
 package org.example.hot100_v2.medium.backtrack;
 
-import java.util.Arrays;
-
 /**
  * 目标和
  *
@@ -29,23 +27,28 @@ import java.util.Arrays;
 public class _494 {
 
     public int findTargetSumWays(int[] nums, int target) {
-        if (nums.length == 1) {
-            int res = 0;
-            if (nums[0] == target) {
-                res++;
-            }
-            if (nums[0] == -target) {
-                res++;
-            }
-            return res;
+        return find(nums, target, 0);
+    }
+
+    public int find(int[] nums, int target, int start) {
+        if (start >= nums.length) {
+            return 0;
         }
-        int[] childNums = Arrays.copyOfRange(nums, 0, nums.length - 1);
-        return findTargetSumWays(childNums, target - nums[nums.length - 1]) + findTargetSumWays(childNums, target + nums[nums.length - 1]);
+        if (start == nums.length - 1) {
+            if (nums[start] == target && nums[start] == -target) {
+                return 2;
+            }
+            if (nums[start] == target || nums[start] == -target) {
+                return 1;
+            }
+        }
+        return find(nums, target + nums[start], start + 1) + find(nums, target - nums[start], start + 1);
     }
 
     public static void main(String[] args) {
         _494 solution = new _494();
         System.out.println(solution.findTargetSumWays(new int[]{0}, 0));
+        System.out.println(solution.findTargetSumWays(new int[]{1,1,1,1,1}, 3));
     }
 
 }
